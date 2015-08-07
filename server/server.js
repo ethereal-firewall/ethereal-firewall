@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var Sequelize - require('sequelize');
+var Sequelize = require('sequelize');
 
 var db = require('./config/db');
 
