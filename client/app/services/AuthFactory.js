@@ -2,18 +2,24 @@ angular.module('followApp')
 .factory('AuthFactory', function($http) {
 
   // Signin
-  var signin = function() {
-    return null;
+  var AuthObj = {
+
+    signin : function() {
+      return null;
+    },
+
+    // Signup
+    signup : function() {
+      return null;
+    },
+
+    // Signout
+    signout : function() {
+      return null;
+    },
+
   };
 
-  // Signup
-  var signup = function() {
-    return null;
-  };
-
-  // Signout
-  var signout = function() {
-    return null;
-  };
+  return AuthObj;
 
 });
