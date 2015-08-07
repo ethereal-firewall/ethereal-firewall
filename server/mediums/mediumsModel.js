@@ -7,7 +7,7 @@ var Sequelize = db.Sequelize;
 
 var Medium = sequelize.define('Medium', {
   name: Sequelize.STRING,
-  imgurl: Sequelize.STRING
+  iconurl: Sequelize.STRING
 });
 
 module.exports.Medium = Medium;
