@@ -1,0 +1,12 @@
+{
+  "name": "ethereal-firewall",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server/server.js",
+  "scripts": {},
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "^4.13.3",
+    "sequelize": "^3.5.1"
+  }
+}
