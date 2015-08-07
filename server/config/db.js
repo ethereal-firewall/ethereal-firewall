@@ -12,8 +12,8 @@ Contact.belongsTo(User);
 Contact.hasMany(Conversation);
 Conversation.belongsTo(Contact);
 
-Conversation.hasMany(Medium);
-Medium.belongsTo(Conversation);
+Medium.hasMany(Conversation);
+Conversation.belongsTo(Medium);
 
 module.exports.Sequelize = Sequelize;
 module.exports.sequelize = sequelize;
