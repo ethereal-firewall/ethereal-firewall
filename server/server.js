@@ -6,10 +6,6 @@ var db = require('./config/db');
 
 var app = express();
 
-var sequelize = new Sequelize('sequelize', 'root', '', {
-  dialect: 'mysql';
-});
-
 var port = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
