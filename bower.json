@@ -1,0 +1,10 @@
+{
+  "name": "ethereal-firewall",
+  "version": "0.0.0",
+  "authors": [],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.3",
+    "angular-route": "~1.4.3"
+  }
+}
