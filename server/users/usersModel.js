@@ -1,17 +1,10 @@
 // usersModel.js
 
-var db = require('../config/db');
-var Contact = require('../contacts/contactsModel');
+module.exports = function (sequelize, DataTypes) {
+  var User = sequelize.define('User', {
+    username: DataTypes.STRING,
+    password: DataTypes.STRING
+  };
 
-var sequelize = db.sequelize;
-var Sequelize = db.Sequelize;
-
-var User = sequelize.define('User', {
-  username: Sequelize.STRING,
-  password: Sequelize.STRING
-});
-
-User.hasMany(Contact);
-Contact.belongsTo(User);
-
-module.exports.User = User;
+  return User;
+};
