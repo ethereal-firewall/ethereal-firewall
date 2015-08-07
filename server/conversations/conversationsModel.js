@@ -9,8 +9,6 @@ var Sequelize = db.Sequelize;
 var Conversation = sequelize.define('Conversation', {
   datetime: Sequelize.DATETIME,
   summary: Sequelize.TEXT
-}, {
-  timestamp: true
 });
 
 Conversation.hasMany(Medium);
