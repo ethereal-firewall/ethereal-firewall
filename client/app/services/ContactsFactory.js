@@ -1,7 +1,7 @@
 angular.module('followApp')
 .factory('ContactsFactory', function($http) {
 
-  var ContactsObj = {
+  return {
 
     // get a single user contact/summary
     getContact : function() {
@@ -25,5 +25,4 @@ angular.module('followApp')
 
   };
 
-  return ContactsObj;
 });

@@ -2,8 +2,9 @@ angular.module('followApp')
 .factory('AuthFactory', function($http) {
 
   // Signin
-  var AuthObj = {
+  return {
 
+    // Signin
     signin : function() {
       return null;
     },
@@ -19,7 +20,5 @@ angular.module('followApp')
     },
 
   };
-
-  return AuthObj;
 
 });
