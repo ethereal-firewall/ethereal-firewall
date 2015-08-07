@@ -1,4 +1,4 @@
-angular.module('followApp.route', [])
+angular.module('followApp')
 .config(function($routeProvider) {
   $routeProvider
   .when('/signup', {
