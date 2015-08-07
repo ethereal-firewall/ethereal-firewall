@@ -6,6 +6,8 @@ var Sequelize = require('sequelize');
 
 var app = express();
 
+require('./config/middleware.js')(app, express);
+
 var port = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
