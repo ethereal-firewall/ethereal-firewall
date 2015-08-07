@@ -59,11 +59,11 @@ module.exports = function(grunt) {
     //   }
     // },
 
-    // nodemon: {
-    //   dev: {
-    //     script: 'server.js'
-    //   }
-    // },
+    nodemon: {
+      dev: {
+        script: 'server/server.js'
+      }
+    },
   });
 
   // Load the plugin that provides the "uglify" task.
