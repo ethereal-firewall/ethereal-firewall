@@ -1,5 +1,5 @@
-Angular.module('followApp.ConversationsFactory', [])
-.factory('Conversations', function($http) {
+angular.module('followApp')
+.factory('ConversationsFactory', function($http) {
   var getConversations = function() {
     return null;
   };
