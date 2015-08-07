@@ -2,7 +2,6 @@
 
 module.exports = function (sequelize, DataTypes) {
   var Contact = sequelize.define('Contact', {
-    name: DataTypes.STRING,
     firstname: DataTypes.STRING,
     lastname: DataTypes.STRING,
     phone: DataTypes.STRING,
