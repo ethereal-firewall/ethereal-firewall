@@ -3,27 +3,25 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    // uglify: {
-    //   options: {
-    //     banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-    //   },
-    //   build: {
-    //     src: 'src/<%= pkg.name %>.js',
-    //     dest: 'dist/<%= pkg.name %>.min.js'
-    //   }
-    // },
+    uglify: {
+      build: {
+        src: 'client/dist/main.js',
+        dest: 'client/dist/main.js'
+      }
+    },
 
     concat: {
       options: {
         separator: '\n'
       },
-      sass: {
-        files: {
-          'client/assets/styles/combined.scss': [
-            'client/assets/styles/reset.scss',
-            'client/assets/styles/main.scss',
-          ]
-        }
+      clientjs: {
+        src: [
+          './client/app/app.js',
+          './client/app/route.js',
+          './client/app/controllers/**/*.js',
+          './client/app/services/**/*.js'
+        ],
+        dest: './client/dist/main.js'
       }
     },
 
@@ -39,25 +37,31 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      css: {
-        files: 'client/styles/**/*.scss',
-        tasks: ['concat', 'sass']
+      serverjs: {
+        files: ['server/**/*.js'],
+        tasks: ['jshint']
+      },
+      clientjs: {
+        files: ['client/**/*.js', '!client/dist/**/*.*'],
+        tasks: ['jshint', 'build']
       }
     },
 
-    // jshint: {
-    //   files: [
-    //     'public/client/**/*.js'
-    //   ],
-    //   options: {
-    //     force: 'true',
-    //     jshintrc: '.jshintrc',
-    //     ignores: [
-    //       'public/lib/**/*.js',
-    //       'public/dist/**/*.js'
-    //     ]
-    //   }
-    // },
+    jshint: {
+      files: [
+        'client/**/*.js',
+        '!client/dist/**/*.js',
+        'server/**/*.js',
+      ],
+      options: {
+        force: 'true',
+        //jshintrc: '.jshintrc',
+        ignores: [
+          'public/lib/**/*.js',
+          'public/dist/**/*.js'
+        ]
+      }
+    },
 
     nodemon: {
       dev: {
@@ -77,5 +81,6 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('default', ['concat', 'sass', 'watch']);
+  grunt.registerTask('build', ['jshint', 'concat', 'uglify']);
   grunt.registerTask('start', ['nodemon']);
 };
