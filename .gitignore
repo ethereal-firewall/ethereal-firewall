@@ -1,6 +1,6 @@
 /node_modules
 /client/lib
-/dist/*.js
-/dist/*.css
+/client/dist/*.js
+/client/dist/*.css
 
 .DS_store
