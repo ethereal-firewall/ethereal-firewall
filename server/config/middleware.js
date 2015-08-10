@@ -17,7 +17,7 @@ module.exports = function(app, express) {
   app.use('/users', userRouter);
 
   require('../users/usersRoutes.js')(userRouter);
-  require('../contacts/contactsRoutes.js')(linkRouter);
+  require('../contacts/contactsRoutes.js')(contactsRouter);
   require('../conversations/conversationsRoutes.js', conversationsRouter);
 
 };
