@@ -4,7 +4,7 @@ var sequelize = new Sequelize('followApp', 'root', '');
 var User = sequelize.import('../users/usersModel');
 var Contact = sequelize.import('../contacts/contactsModel');
 var Conversation = sequelize.import('../conversations/conversationsModel');
-var Medium = sequelize.import('../conversations/conversationsModel');
+var Medium = sequelize.import('../mediums/mediumsModel');
 
 User.hasMany(Contact);
 Contact.belongsTo(User);

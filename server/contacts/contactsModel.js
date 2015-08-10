@@ -2,12 +2,12 @@
 
 module.exports = function (sequelize, DataTypes) {
   var Contact = sequelize.define('Contact', {
-    firstname: DataTypes.STRING,
-    lastname: DataTypes.STRING,
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
     phone: DataTypes.STRING,
     email: DataTypes.STRING,
     interval: DataTypes.INTEGER,
-    nextdate: DataTypes.DATE
+    nextDate: DataTypes.DATE
   });
 
   return Contact;
