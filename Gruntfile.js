@@ -79,8 +79,46 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-nodemon');
 
-  // Default task(s).
+  // Dev Env //////////////////////////////////////////////////////////////
+  grunt.registerTask('server-dev', function(target) {
+    var nodemon = grunt.util.spawn({
+      cmd: 'grunt',
+      grunt: true,
+      args: 'nodemon'
+    });
+
+    nodemon.stdout.pipe(process.stdout);
+    nodemon.stderr.pipe(process.stderr);
+
+    grunt.task.run(['watch']);
+  })
+
+  // Helper Tasks /////////////////////////////////////////////////////////
   grunt.registerTask('default', ['concat', 'sass', 'watch']);
-  grunt.registerTask('build', ['jshint', 'concat', 'uglify']);
+  grunt.registerTask('build', [ 
+    'concat', 
+    'sass',
+    'uglify'
+  ]);
   grunt.registerTask('start', ['nodemon']);
+
+  grunt.registerTask('test', [
+    'jshint'
+  ]);
+
+  grunt.registerTask('upload', function(n) {
+    if (grunt.option('prod')) {
+      // Do production server upload/deployment tasks
+    }
+    else {
+      grunt.task.run(['build']);
+      grunt.task.run(['server-dev']);
+    }
+  })
+
+  // Grunt Tasks ///////////////////////////////////////////////////////////////
+  grunt.registerTask('deploy', [
+    'test',
+    'upload'
+  ]);
 };
