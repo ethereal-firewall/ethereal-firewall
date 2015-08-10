@@ -3,8 +3,12 @@
 var utils = require('../config/utils');
 
 /*
-  Structures of data sent to and from the server and how we get contactId and userId from requests remain open issues, 
-  but I expect everything else will look more or less the same after we resolve those issues.
+  OPEN ISSUES:
+  - Structures of data sent to and from the server
+  - How we get contactId and userId from requests
+  - then() or spread() for update
+  
+  I expect everything else will look more or less the same after we resolve those issues.
 */
 
 module.exports.addContact = function (req, res) {
@@ -51,8 +55,15 @@ module.exports.updateContact = function (req, res) {
 
   Contact.sync()
     .update(updatedRecord, options)
-    .then(function (contact) {
-      utils.sendResponse(res, 200, contact);
+    .then(function (rows) {
+      /* 
+        As I understand it, the update method returns a promise, and the callback takes one argument: an array
+        containing two elements. The first element is the number of affected rows, which always should be 1. The 
+        second element is an array containing the affected records. This sends back a response with the first 
+        record in that array.
+      */
+      var updatedContact = rows[1][0];
+      utils.sendResponse(res, 200, updatedContact);
     })
     .catch(function (err) {
       console.log(err);
