@@ -55,6 +55,7 @@ module.exports = function(grunt) {
       options: {
         force: 'true',
         ignores: [
+          'client/lib/**/*.js',
           'client/dist/**/*.js'
         ]
       }
