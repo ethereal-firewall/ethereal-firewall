@@ -90,7 +90,7 @@ module.exports.getAllContacts = function (req, res) {
   var models = req.app.get('models');
   var Contact = models.Contact;
 
-  var userId = /* GET USER ID SOMEHOW */;
+  var userId; // GET USER ID SOMEHOW
 
   Contact.sync()
     .findAll({
