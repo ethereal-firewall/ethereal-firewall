@@ -12,7 +12,7 @@ module.exports = function(app, express) {
   // app.use(express.static(__dirname + '/../../client'));
 
 
-  app.use('/users/contacts/*/conversations', conversationsRouter);
+  app.use('/users/contacts/:contactId/conversations', conversationsRouter);
   app.use('/users/contacts', contactsRouter);
   app.use('/users', userRouter);
 
