@@ -11,9 +11,15 @@ module.exports = function(app, express) {
   app.use(bodyParser.json());
   // app.use(express.static(__dirname + '/../../client'));
 
+  app.param('userId', function(req, res, next, userId) {
+    console.log('in app param userId');
+    req.ourParams = {};
+    req.ourParams.userId = userId;
+    next();
+  });
 
-  app.use('/users/contacts/:contactId/conversations', conversationsRouter);
-  app.use('/users/contacts', contactsRouter);
+  app.use('/users/:userId/contacts/:contactId/conversations', conversationsRouter);
+  app.use('/users/:userId/contacts', contactsRouter);
   app.use('/users', userRouter);
 
   require('../users/usersRoutes.js')(userRouter);
