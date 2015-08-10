@@ -1,13 +1,12 @@
 angular.module('followApp')
 .config(function($routeProvider) {
-  $routeProvider
-  .when('/signup', {
+  $routeProvider.when('/', {
     // signup html and controller
   })  
   .when('/signin', {
     // signin html and controller
   })
-  .when('/', {
+  .when('/signup', {
     // agenda html and controller
   })
   .when('/contacts/:id', {
