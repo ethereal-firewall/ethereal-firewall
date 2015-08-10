@@ -1,5 +1,5 @@
 angular.module('followApp')
-.factory('ContactsFactory', function($http) {
+.factory('ContactsFactory', ['$http', function($http) {
 
   return {
 
@@ -25,4 +25,4 @@ angular.module('followApp')
 
   };
 
-});
+}]);

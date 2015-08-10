@@ -1,13 +1,12 @@
 angular.module('followApp')
-.config(function($routeProvider) {
-  $routeProvider
-  .when('/signup', {
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/', {
     // signup html and controller
   })  
   .when('/signin', {
     // signin html and controller
   })
-  .when('/', {
+  .when('/signup', {
     // agenda html and controller
   })
   .when('/contacts/:id', {
@@ -17,4 +16,4 @@ angular.module('followApp')
     // signout html and controller
   })
   .otherwise({redirectTo: '/signin'});
-});
+}]);

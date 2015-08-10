@@ -1,5 +1,5 @@
 angular.module('followApp')
-.factory('AuthFactory', function($http) {
+.factory('AuthFactory', ['$http', function($http) {
 
   // Signin
   return {
@@ -21,4 +21,4 @@ angular.module('followApp')
 
   };
 
-});
+}]);

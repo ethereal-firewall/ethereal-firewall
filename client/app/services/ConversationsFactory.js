@@ -1,5 +1,5 @@
 angular.module('followApp')
-.factory('ConversationsFactory', function($http) {
+.factory('ConversationsFactory', ['$http', function($http) {
 
   // Add all functions into this object
   return  {
@@ -16,4 +16,4 @@ angular.module('followApp')
 
   };
 
-});
+}]);
