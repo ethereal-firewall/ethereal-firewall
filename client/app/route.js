@@ -17,4 +17,4 @@ angular.module('followApp')
     // signout html and controller
   })
   .otherwise({redirectTo: '/signin'});
-})
+});
