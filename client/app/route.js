@@ -1,5 +1,5 @@
 angular.module('followApp')
-.config(function($routeProvider) {
+.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {
     // signup html and controller
   })  
@@ -16,4 +16,4 @@ angular.module('followApp')
     // signout html and controller
   })
   .otherwise({redirectTo: '/signin'});
-});
+}]);
