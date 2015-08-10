@@ -1,5 +1,5 @@
 var morgan = require('morgan');
-var bodyParser = require('bodyParser');
+var bodyParser = require('body-parser');
 
 module.exports = function(app, express) {
   var userRouter = express.Router();
