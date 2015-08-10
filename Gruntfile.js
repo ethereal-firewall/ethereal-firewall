@@ -50,15 +50,13 @@ module.exports = function(grunt) {
     jshint: {
       files: [
         'client/**/*.js',
-        '!client/dist/**/*.js',
         'server/**/*.js',
       ],
       options: {
         force: 'true',
-        //jshintrc: '.jshintrc',
         ignores: [
-          'public/lib/**/*.js',
-          'public/dist/**/*.js'
+          'client/lib/**/*.js',
+          'client/dist/**/*.js'
         ]
       }
     },
