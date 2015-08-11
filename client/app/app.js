@@ -4,4 +4,14 @@ angular.module('followApp', ['ngMaterial', 'ngRoute'])
     $mdSidenav(menuId).toggle();
   };
  
+}])
+.run(['$rootScope', '$location', "AuthFactory", function($rootScope, $location, AuthFactory) {
+  
+  $rootScope.on("$routeChangeStart", function(evt, next, current) {
+
+    if (!AuthFactory.isAuth()) {
+      $location.path('/signin');
+    }
+
+  });
 }]);
