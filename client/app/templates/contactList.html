@@ -1,10 +1,12 @@
-<md-list class="contactList"> 
-  <md-list-item ng-repeat="contact in data.contacts" ng-click="navigateTo($event)" layout="row">
+<ul class="contactList"> 
+  <li ng-repeat="contact in data.contacts" ng-click="navigateTo($event)">
     <div class="contactImage"></div>
     <div class="contactName">
       <span>{{ contact.firstName }}</span>
       <span>{{ contact.lastName }}</span>
     </div>
     <div class="contactDays">{{ contact.nextDate }}</div>
-  </md-list-item>
-</md-list>
+  </li>
+</ul>
+
+
