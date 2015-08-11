@@ -3,35 +3,42 @@ angular.module('followApp')
 
   return {
     getContact : function() {
-      return new Promise(function(resolve, reject) {
-        resolve(
-          {
-            contact: {
-              firstName: 'Darryl',
-              lastName: 'Blake',
-              phone: '+64 22 450 1100',
-              email: 'darryl@darrylblake.com',
-              interval: 7,
-              nextDate: '2015-08-17 10:37:22',
-            },
-            conversation: [{
-              type: 'E',
-              datetime: '2015-08-17 10:37:22',
-              summary: 'Chocolate bar sweet roll toffee gingerbread.'
-            },
-            {
-              type: 'E',
-              datetime: '2015-08-17 10:37:22',
-              summary: 'Cotton candy cupcake powder sesame snaps. Cotton candy cupcake powder sesame snaps.'
-            },
-            {
-              type: 'E',
-              datetime: '2015-08-17 10:37:22',
-              summary: 'Chocolate bar sweet roll toffee gingerbread.'
-            }],
-          }
-        );
-      });
+      // return new Promise(function(resolve, reject) {
+      //   resolve(
+      //     {
+      //       contact: {
+      //         firstName: 'Darryl',
+      //         lastName: 'Blake',
+      //         phone: '+64 22 450 1100',
+      //         email: 'darryl@darrylblake.com',
+      //         interval: 7,
+      //         nextDate: '2015-08-17 10:37:22',
+      //       },
+      //       conversation: [{
+      //         type: 'E',
+      //         datetime: '2015-08-17 10:37:22',
+      //         summary: 'Chocolate bar sweet roll toffee gingerbread.'
+      //       },
+      //       {
+      //         type: 'E',
+      //         datetime: '2015-08-17 10:37:22',
+      //         summary: 'Cotton candy cupcake powder sesame snaps. Cotton candy cupcake powder sesame snaps.'
+      //       },
+      //       {
+      //         type: 'E',
+      //         datetime: '2015-08-17 10:37:22',
+      //         summary: 'Chocolate bar sweet roll toffee gingerbread.'
+      //       }],
+      //     }
+      //   );
+      // });
+      return $http({
+        method: "GET",
+        url: "/users/" + $rootScope.user + "contacts/" + $rootScope.contact,
+      })
+      .then(function(res) {
+        return res.data;
+      })
     },
       
 
