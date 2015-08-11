@@ -19,7 +19,7 @@ angular.module('followApp')
     addConversation : function(conversation) {
       return $http({
         method: "POST",
-        url: "/users/" + $rootScope.user + "/contacts/" + $rootScope.contact + '/converstations',
+        url: "/users/" + $rootScope.user + "/contacts/" + $rootScope.contact + '/conversations',
         data: conversation,
       })
       .then(function(res) {
