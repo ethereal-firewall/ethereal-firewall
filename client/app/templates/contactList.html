@@ -1,10 +1,7 @@
-<md-list class="contactList"> 
-  <md-list-item ng-repeat="contact in data.contacts" ng-click="navigateTo($event)" layout="row">
-    <div class="contactImage"></div>
-    <div class="contactName">
-      <span>{{ contact.firstName }}</span>
-      <span>{{ contact.lastName }}</span>
-    </div>
-    <div class="contactDays">{{ contact.nextDate }}</div>
-  </md-list-item>
-</md-list>
+<ul class="contacts">
+  <li ng-repeat="contact in data.contacts" ng-click="navigateTo($event)">
+    <div class="interval overdue">-5</div>
+    <img class="profile" src="/assets/icons/profile.png">
+    <h3>{{ contact.firstName }} {{ contact.lastName }}</h3>
+  </li>
+</ul>

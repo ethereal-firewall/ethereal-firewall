@@ -1,7 +1,4 @@
-angular.module('followApp', ['ngMaterial', 'ngRoute'])
-.controller('AppCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
-  $scope.toggleSidenav = function(menuId) {
-    $mdSidenav(menuId).toggle();
-  };
- 
+angular.module('followApp', ['ngRoute'])
+.controller('AppCtrl', ['$scope', function($scope){
+
 }]);

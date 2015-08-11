@@ -46,3 +46,9 @@ table {
 *, *:before, *:after {
   box-sizing: border-box;
 }
+
+
+input {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
