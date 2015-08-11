@@ -6,7 +6,9 @@
   "scripts": {},
   "dependencies": {
     "body-parser": "^1.4.3",
+    "connect-redis": "^2.4.1",
     "express": "^4.13.3",
+    "express-session": "^1.11.3",
     "grunt": "^0.4.5",
     "grunt-contrib-concat": "^0.5.1",
     "grunt-contrib-cssmin": "^0.13.0",
