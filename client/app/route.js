@@ -7,10 +7,12 @@ angular.module('followApp')
     controller: 'ContactsCtrl',
   })  
   .when('/signin', {
-    // signin html and controller
+    templateUrl: 'app/templates/signin.html',
+    controller: 'AuthCtrl.js',
   })
   .when('/signup', {
-    // signup html and controller
+    templateUrl: 'app/templates/signup.html',
+    controller: 'AuthCtrl.js',
   })
   .when('/contacts/:id', {
     // signin html and controller
