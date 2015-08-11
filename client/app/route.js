@@ -8,13 +8,13 @@ angular.module('followApp')
   })  
   .when('/signin', {
     templateUrl: 'app/templates/signin.html',
-    controller: 'AuthCtrl.js',
+    controller: 'AuthCtrl',
   })
   .when('/signup', {
     templateUrl: 'app/templates/signup.html',
-    controller: 'AuthCtrl.js',
+    controller: 'AuthCtrl',
   })
-  .when('/contacts/:id', {
+  .when('/contact', {
     // signin html and controller
   })
   .when('/signout', {
