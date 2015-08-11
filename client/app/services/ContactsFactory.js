@@ -41,8 +41,15 @@ angular.module('followApp')
     },
 
     // add a new contact to the user
-    addContact : function() {
-      return null;
+    addContact : function(contact) {
+      return $http({
+        method: "POST",
+        url: "/users/" + $rootScope.user + "/contacts",
+        data: contact,
+      })
+      .then(function(res) {
+        return res.data;
+      })
     },
 
     // get all the user's contacts
