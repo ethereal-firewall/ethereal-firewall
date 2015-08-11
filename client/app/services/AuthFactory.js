@@ -1,5 +1,5 @@
 angular.module('followApp')
-.factory('AuthFactory', ['$http', function($http) {
+.factory('AuthFactory', ['$http', '$rootScope', function($http, $rootScope) {
 
   // Signin
   return {
@@ -32,6 +32,15 @@ angular.module('followApp')
     signout : function() {
       return null;
     },
+
+    isAuth : function() {
+      if ($rootScope.user != null) {
+        return true;
+      }
+      else {
+        return false;
+      }
+    }
 
   };
 
