@@ -6,7 +6,8 @@ angular.module('followApp', ['ngRoute'])
   
   $rootScope.$on("$routeChangeStart", function(evt, next, current) {
 
-    if (!AuthFactory.isAuth()) {
+    if (next.$$route.originalPath !== "/signup" && !AuthFactory.isAuth()) {
+      console.log(next);
       $location.path('/signin');
     }
 
