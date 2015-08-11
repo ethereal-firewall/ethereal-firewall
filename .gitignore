@@ -2,5 +2,6 @@
 /client/lib
 /client/dist/*.js
 /client/dist/*.css
+/client/dist/*.*
 
 .DS_store
