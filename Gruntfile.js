@@ -19,7 +19,8 @@ module.exports = function(grunt) {
           './client/app/app.js',
           './client/app/route.js',
           './client/app/controllers/**/*.js',
-          './client/app/services/**/*.js'
+          './client/app/services/**/*.js',
+          './client/app/directives/**/*.js'
         ],
         dest: './client/dist/main.js'
       }

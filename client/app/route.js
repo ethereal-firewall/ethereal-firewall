@@ -3,6 +3,8 @@ angular.module('followApp')
   $routeProvider
   .when('/', {
     // agenda html and controller
+    templateUrl: 'app/templates/agenda.html',
+    controller: 'ContactsCtrl',
   })  
   .when('/signin', {
     // signin html and controller
