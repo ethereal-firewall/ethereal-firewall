@@ -17,6 +17,7 @@ module.exports = function(grunt) {
       clientscss: {
         src: [
           './client/assets/styles/reset.scss',
+          './client/assets/styles/mixins.scss',
           './client/assets/styles/main.scss',
         ],
         dest: './client/assets/styles/combined.scss'

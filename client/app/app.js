@@ -1,17 +1,14 @@
-angular.module('followApp', ['ngMaterial', 'ngRoute'])
-.controller('AppCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
-  $scope.toggleSidenav = function(menuId) {
-    $mdSidenav(menuId).toggle();
-  };
+angular.module('followApp', ['ngRoute'])
+.controller('AppCtrl', ['$scope', function($scope){
  
 }])
-.run(['$rootScope', '$location', "AuthFactory", function($rootScope, $location, AuthFactory) {
+// .run(['$rootScope', '$location', "AuthFactory", function($rootScope, $location, AuthFactory) {
   
-  $rootScope.on("$routeChangeStart", function(evt, next, current) {
+//   $rootScope.on("$routeChangeStart", function(evt, next, current) {
 
-    if (!AuthFactory.isAuth()) {
-      $location.path('/signin');
-    }
+//     if (!AuthFactory.isAuth()) {
+//       $location.path('/signin');
+//     }
 
-  });
-}]);
+//   });
+// }]);
