@@ -4,12 +4,20 @@ angular.module('followApp')
 
   $rootScope.user = -1;
 
-  $scope.signin = function() {
-    AuthFactory.signin($scope.user)
+  $scope.signup = function() {
+    AuthFactory.signup($scope.user)
     .then(function(user) {
       $rootScope.user = user.id;
       $location.path('/');
     });
   };
+
+  $scope.signin = function() {
+    AuthFactory.signin($scope.user)
+    .then(function(user) {
+      $rootScope.user = user.id;
+      $location.path('/');
+    })
+  }
   
 }]);
