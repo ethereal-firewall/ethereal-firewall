@@ -27,7 +27,7 @@ angular.module('followApp')
 
   $scope.timeToContact = function(nextDate, currentDate, currentMSDate) {
     // calculate current time in UTC
-    var now = currentMSDate - currentDate.getTimezoneOffset * 60000;
+    var now = currentMSDate - currentDate.getTimezoneOffset() * 60000;
     // subtract now from current date
     var dueDate = Math.floor((nextDate - now) / 86400000);
     // return due date
