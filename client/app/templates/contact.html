@@ -1,0 +1,29 @@
+<!-- contact.html -->
+<div class="navigation">
+  <div class="navBack"><img src=""></div>
+  <div class="logo"><img src=""></div>
+  <div class="menu"><img src=""></div>
+</div>
+
+<div class="contactHeader">
+  <div class="contactImage"><img src=""></div>
+  <div class="contactName">{{data.firstName}} {{data.lastName}}</div>
+  <div class="contactDays">{{data.timeToNext}}</div>
+</div>
+
+<div class="conversationCreator">
+  <div class="mediumImage">
+    <a href="mailto://{{data.email}}"><img src=""></a>
+  </div>
+  <div class="mediumImage">
+    <a href="tel://{{data.phone}}"><img src=""></a>
+  </div>
+  <div class="mediumImage">
+    <a href="sms://{{data.phone}}"><img src=""></a>
+  </div>
+  <div class="mediumImage">
+    <a href="/createConversation"><img src=""></a>
+  </div>
+</div>
+
+<conversation-list></conversation-list>
