@@ -1,5 +1,5 @@
 angular.module('followApp')
-.factory('ContactsFactory', ['$http', function($http) {
+.factory('ContactsFactory', ['$http', '$rootScope', function($http, $rootScope) {
 
   return {
     getContact : function() {
@@ -47,33 +47,40 @@ angular.module('followApp')
 
     // get all the user's contacts
     getContacts : function() {
-      return new Promise(function(resolve, reject) {
-        resolve(
-          [
-            { firstName: 'Darryl', lastName: 'Blake' },
-            { firstName: 'Lauren', lastName: 'Janicki' },
-            { firstName: 'Brandon', lastName: 'Lewis' },
-            { firstName: 'Xing', lastName: 'Tong' },
-            { firstName: 'Alberto', lastName: 'Lyons' },
-            { firstName: 'Eloise', lastName: 'Santos' },
-            { firstName: 'Evelyn', lastName: 'Brock' },
-            { firstName: 'Doreen', lastName: 'Meyer' },
-            { firstName: 'Olga', lastName: 'Manning' },
-            { firstName: 'Annie', lastName: 'Becker' },
-            { firstName: 'Terri', lastName: 'Wilson' },
-            { firstName: 'Wanda', lastName: 'Pittman' },
-            { firstName: 'Rodolfo', lastName: 'Williams' },
-            { firstName: 'Owen', lastName: 'Gross' },
-            { firstName: 'Andrew', lastName: 'Reynolds' },
-            { firstName: 'Samuel', lastName: 'Bowen' },
-            { firstName: 'Elvira', lastName: 'Weber' },
-            { firstName: 'Casey', lastName: 'Pierce' },
-            { firstName: 'Patti', lastName: 'Richards' },
-            { firstName: 'Shelia', lastName: 'Carlson' },
-            { firstName: 'Danny', lastName: 'Robinson' },
-            { firstName: 'Gwendolyn', lastName: 'Quinn' },
-          ]
-        );
+      // return new Promise(function(resolve, reject) {
+      //   resolve(
+      //     [
+      //       { firstName: 'Darryl', lastName: 'Blake' },
+      //       { firstName: 'Lauren', lastName: 'Janicki' },
+      //       { firstName: 'Brandon', lastName: 'Lewis' },
+      //       { firstName: 'Xing', lastName: 'Tong' },
+      //       { firstName: 'Alberto', lastName: 'Lyons' },
+      //       { firstName: 'Eloise', lastName: 'Santos' },
+      //       { firstName: 'Evelyn', lastName: 'Brock' },
+      //       { firstName: 'Doreen', lastName: 'Meyer' },
+      //       { firstName: 'Olga', lastName: 'Manning' },
+      //       { firstName: 'Annie', lastName: 'Becker' },
+      //       { firstName: 'Terri', lastName: 'Wilson' },
+      //       { firstName: 'Wanda', lastName: 'Pittman' },
+      //       { firstName: 'Rodolfo', lastName: 'Williams' },
+      //       { firstName: 'Owen', lastName: 'Gross' },
+      //       { firstName: 'Andrew', lastName: 'Reynolds' },
+      //       { firstName: 'Samuel', lastName: 'Bowen' },
+      //       { firstName: 'Elvira', lastName: 'Weber' },
+      //       { firstName: 'Casey', lastName: 'Pierce' },
+      //       { firstName: 'Patti', lastName: 'Richards' },
+      //       { firstName: 'Shelia', lastName: 'Carlson' },
+      //       { firstName: 'Danny', lastName: 'Robinson' },
+      //       { firstName: 'Gwendolyn', lastName: 'Quinn' },
+      //     ]
+      //   );
+      // });
+      return $http({
+        method: "GET",
+        url: '/users/' + $rootScope.user + '/contacts',
+      })
+      .then(function(res) {
+        return res.data;
       });
     },
   };
