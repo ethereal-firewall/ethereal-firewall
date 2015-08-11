@@ -1,5 +1,5 @@
 angular.module('followApp')
-.factory('ConversationsFactory', ['$http', function($http) {
+.factory('ConversationsFactory', ['$http', '$rootScope', function($http, $rootScope) {
 
   // Add all functions into this object
   return  {
@@ -10,8 +10,15 @@ angular.module('followApp')
     },
 
     // Add a conversation to the contact
-    addConversation : function() {
-      return null;
+    addConversation : function(conversation) {
+      return $http({
+        method: "POST",
+        url: "/users/" + $rootScope.user + "contacts/" + $rootScope.contact,
+        data: conversation,
+      })
+      .then(function(res) {
+        return res.data;
+      })
     },
 
   };
