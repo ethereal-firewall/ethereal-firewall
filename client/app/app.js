@@ -5,9 +5,9 @@ angular.module('followApp', ['ngMaterial', 'ngRoute'])
   };
  
 }])
-.run(['$rootScope', '$location', "AuthFactory", function($rootScope, $location, AuthFactory) {
+.run(['$rootScope', '$location', 'AuthFactory', function($rootScope, $location, AuthFactory) {
   
-  $rootScope.on("$routeChangeStart", function(evt, next, current) {
+  $rootScope.$on("$routeChangeStart", function(evt, next, current) {
 
     if (!AuthFactory.isAuth()) {
       $location.path('/signin');
