@@ -6,7 +6,13 @@ angular.module('followApp')
 
     // Get all the Contact's conversations
     getConversations : function() {
-      return null;
+      return $http({
+        method: "GET",
+        url: "/users/" + $rootScope.user + "/contacts/" + $rootScope.contact + '/conversations',
+      })
+      .then(function(res) {
+        return res.data;
+      })
     },
 
     // Add a conversation to the contact
