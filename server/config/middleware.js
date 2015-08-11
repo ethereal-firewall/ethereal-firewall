@@ -39,7 +39,7 @@ module.exports = function(app, express) {
   require('../users/usersRoutes.js')(userRouter);
   require('../contacts/contactsRoutes.js')(contactsRouter);
   require('../conversations/conversationsRoutes.js')(conversationsRouter);
-  require('../mediums/mediumsRoutes.js')(mediumsRouter);
+  //require('../mediums/mediumsRoutes.js')(mediumsRouter);
   
 };
 
