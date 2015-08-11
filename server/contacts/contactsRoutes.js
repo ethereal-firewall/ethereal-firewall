@@ -3,10 +3,10 @@ var contactsController = require('./contactsController.js');
 module.exports = function(app) {
 
   app.route('/:contactId')
-    .get(function(req, res) {console.log(req.body);})
-    .put(function(req, res) {console.log(req.params);});
+    .get(contactsController.getContact)
+    .put(contactsController.updateContact);
 
   app.route("/")
-    .get(function(req, res) {console.log(req.body);})
-    .post(function(req, res) {console.log(req.userId);});
+    .get(contactsController.getAllContacts)
+    .post(contactsController.addContact);
 };
