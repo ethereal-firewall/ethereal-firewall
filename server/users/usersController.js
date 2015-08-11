@@ -2,7 +2,7 @@
 
 var utils = require('../config/utils');
 
-var addUser = function (req, res, next) {
+module.exports.signup = function (req, res, next) {
   var models = req.app.get('models');
   var User = models.User;
 
@@ -24,4 +24,8 @@ var addUser = function (req, res, next) {
       console.log('Error: ', err);
     });
   });
+};
+
+module.exports.signin = function (req, res, next) {
+  // not sure how to handle this yet
 };
