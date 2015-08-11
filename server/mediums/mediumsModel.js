@@ -3,7 +3,7 @@
 module.exports = function (sequelize, DataTypes) {
   var Medium = sequelize.define('Medium', {
     name: DataTypes.STRING,
-    iconurl: DataTypes.STRING
+    iconUrl: DataTypes.STRING
   });
 
   return Medium;

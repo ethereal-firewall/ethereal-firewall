@@ -2,7 +2,7 @@
 
 module.exports = function (sequelize, DataTypes) {
   var Conversation = sequelize.define('Conversation', {
-    datetime: DataTypes.DATETIME,
+    dateTime: DataTypes.DATETIME,
     summary: DataTypes.TEXT
   });
 
