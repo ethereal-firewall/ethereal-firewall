@@ -7,6 +7,7 @@ module.exports = function(app, express) {
   var userRouter = express.Router();
   var contactsRouter = express.Router();
   var conversationsRouter = express.Router();
+  var mediumsRouter = express.Router();
 
 
   app.use(morgan('dev'));
@@ -33,11 +34,13 @@ module.exports = function(app, express) {
   app.use('/users/:userId/contacts/:contactId/conversations', conversationsRouter);
   app.use('/users/:userId/contacts', contactsRouter);
   app.use('/users', userRouter);
+  app.use('/mediums', mediumsRouter)
 
   require('../users/usersRoutes.js')(userRouter);
   require('../contacts/contactsRoutes.js')(contactsRouter);
-  require('../conversations/conversationsRoutes.js', conversationsRouter);
-
+  require('../conversations/conversationsRoutes.js')(conversationsRouter);
+  require('../mediums/mediumsRoutes.js')(mediumsRouter);
+  
 };
 
 
