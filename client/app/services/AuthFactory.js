@@ -10,8 +10,15 @@ angular.module('followApp')
     },
 
     // Signup
-    signup : function() {
-      return null;
+    signup : function(user) {
+      return $http({
+        method: "POST",
+        url: "/users/signup",
+        data: user,
+      })
+      .then(function(res) {
+        return res.data;
+      });
     },
 
     // Signout
