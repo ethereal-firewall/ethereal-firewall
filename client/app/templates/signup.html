@@ -1,8 +1,8 @@
 <h1>Sign Up</h1>
 
-<form class="signin">
-  <label>Username<input></label>
-  <label>Password<input></label>
+<form class="signup" ng-submit="signup()">
+  <label><input ng-model="user.username">Username</label>
+  <label><input ng-model="user.password">Password</label>
   <input type="submit">
 </form>
 
