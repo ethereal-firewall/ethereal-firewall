@@ -1,11 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var Sequelize = require('sequelize');
-var utils = require('./config/utils.js')
 
-// var db = require('./config/db');
+var db = require('./config/db');
 
 var app = express();
+
+app.set('models', db);
 
 require('./config/middleware.js')(app, express);
 
