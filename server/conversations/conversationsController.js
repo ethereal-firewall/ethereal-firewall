@@ -9,17 +9,19 @@ module.exports.addConversation = function (req, res) {
   var record = {
     dateTime: req.body.dateTime,
     summary: req.body.summary,
-    contactId: req.body.contactId
+    ContactId: req.body.ContactId,
+    MediumId: req.body.MediumId
   };
 
-  Conversation.sync()
-    .create(record)
-    .then(function (conversation) {
-      utils.sendResponse(res, 201, conversation);
-    })
-    .catch(function (err) {
-      console.log('Error: ', err);
-    });
+  Conversation.sync().then(function () {
+    Conversation.create(record)
+      .then(function (conversation) {
+        utils.sendResponse(res, 201, conversation);
+      })
+      .catch(function (err) {
+        console.log('Error: ', err);
+      });
+  })
 };
 
 module.exports.getAllConversations = function (req, res) {
@@ -28,14 +30,15 @@ module.exports.getAllConversations = function (req, res) {
 
   var contactId = req.contactId;
 
-  Conversation.sync()
-    .findAll({
-      where: { contactId: contactId }
-    })
-    .then(function (conversations) {
-      utils.sendResponse(res, 200, conversations);
-    })
-    .catch(function (err) {
-      console.log('Error: ', err);
-    });
+  Conversation.sync().then(function () {
+    Conversation.findAll({
+        where: { ContactId: contactId }
+      })
+      .then(function (conversations) {
+        utils.sendResponse(res, 200, conversations);
+      })
+      .catch(function (err) {
+        console.log('Error: ', err);
+      });
+  });
 };
