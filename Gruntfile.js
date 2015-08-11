@@ -14,6 +14,13 @@ module.exports = function(grunt) {
       options: {
         separator: '\n'
       },
+      clientscss: {
+        src: [
+          './client/assets/styles/reset.scss',
+          './client/assets/styles/main.scss',
+        ],
+        dest: './client/assets/styles/combined.scss'
+      },
       clientjs: {
         src: [
           './client/app/app.js',
@@ -32,7 +39,19 @@ module.exports = function(grunt) {
           sourceMap: true,
         },
         files: {
-          'client/dist/styles.css':'client/asets/styles/combined.scss',
+          './client/dist/main.css':'./client/assets/styles/combined.scss',
+        }
+      }
+    },
+
+    cssmin: {
+      options: {
+        shorthandCompacting: false,
+        roundingPrecision: -1
+      },
+      target: {
+        files: {
+          './client/dist/main.css': ['./client/dist/main.css']
         }
       }
     },
@@ -45,6 +64,10 @@ module.exports = function(grunt) {
       clientjs: {
         files: ['client/**/*.js', '!client/dist/**/*.*'],
         tasks: ['jshint', 'build']
+      },
+      clientcss: {
+        files: ['client/assets/styles/**/*.scss'],
+        tasks: ['concat:clientscss', 'sass']
       }
     },
 
@@ -97,7 +120,8 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [ 
     'concat', 
     'sass',
-    'uglify'
+    'uglify',
+    'cssmin'
   ]);
   grunt.registerTask('start', ['nodemon']);
 
