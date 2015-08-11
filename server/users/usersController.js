@@ -11,7 +11,8 @@ module.exports.signup = function (req, res, next) {
 
   User.sync().then(function () {
     User.findOrCreate({
-      where: { username: username }
+      where: { username: username },
+      defaults: { password: password }
     })
     .spread(function (user, created) {
       if (created) {

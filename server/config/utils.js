@@ -6,9 +6,8 @@ exports.sendResponse = function (res, statusCode, data) {
   res.end();
 };
 
-// exports.paramHandler = function(app, req, res, param, paramName) {
-//   app.param(param, function(req, res, next, param, paramName) {
-//     req[paramName] = param;
-//     next();
-//   });
-// }
+exports.formatDate = function (date, interval) {
+  date = Date.now() + interval * 86400000 - date.getTimezoneOffset() * 60000;
+  date = (new Date(date)).toISOString().substring(0, 19).replace('T', ' ');
+  return date;
+};
