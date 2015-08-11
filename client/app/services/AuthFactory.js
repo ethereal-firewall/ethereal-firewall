@@ -5,8 +5,15 @@ angular.module('followApp')
   return {
 
     // Signin
-    signin : function() {
-      return null;
+    signin : function(user) {
+      return $http({
+        method: "POST",
+        url: "/users/signin",
+        data: user,
+      })
+      .then(function(res) {
+        return res.data;
+      });
     },
 
     // Signup
