@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "angular": "~1.4.3",
-    "angular-route": "~1.4.3"
+    "angular-route": "~1.4.3",
+    "angular-moment": "~0.10.2"
   }
 }
