@@ -1,10 +1,37 @@
 <div class="addContact" ng-show="showAddForm">
-  <form class="contactForm" ng-submit="addContact()">
-    <input type="text" placeholder="First Name" class="contactName" ng-model="contact.firstName">
-    <input type="text" placeholder="Last Name" class="contactName" ng-model="contact.lastName">
-    <input type="text" placeholder="Phone" class="contactPhone" ng-model="contact.phone">
-    <input type="text" placeholder="Email" class="contactEmail" ng-model="contact.email">
-    <input type="text" placeholder="Interval" class="contactInterval" ng-model="contact.interval">
-    <input type="submit">
+  <form class="contactForm general" name="contactForm" ng-submit="contactForm.$valid && addContact()" novalidate>
+
+    <h3>Add New Contact</h3>
+    
+    <input type="text" 
+           placeholder="First Name" 
+           class="contactName" 
+           ng-model="contact.firstName"
+           required>
+    
+    <input type="text" 
+           placeholder="Last Name" 
+           class="contactName" 
+           ng-model="contact.lastName"
+           required>
+    
+    <input type="text" 
+           placeholder="Phone" 
+           class="contactPhone" 
+           ng-model="contact.phone"
+           ng-required="!(contact.phone.length || contact.email.length)">
+    
+    <input type="email" 
+           placeholder="Email" 
+           class="contactEmail" 
+           ng-model="contact.email"
+           ng-required="!(contact.phone.length || contact.email.length)">
+    
+    <input type="text" 
+           placeholder="Interval" 
+           class="contactInterval" 
+           ng-model="contact.interval"
+           required>
+    <input type="submit" value="Add">
   </form>
 </div>
