@@ -1,6 +1,6 @@
 angular.module('followApp')
 
-.controller('ContactsCtrl', ['$scope', '$rootScope', 'ContactsFactory', function($scope, $rootScope, ContactsFactory) {
+.controller('ContactsCtrl', ['$scope', '$rootScope', '$location', 'ContactsFactory', function($scope, $rootScope, $location, ContactsFactory) {
 
   $scope.data = {};
   $scope.data.contacts = [];
@@ -9,7 +9,6 @@ angular.module('followApp')
   $scope.getContacts = function() {
     ContactsFactory.getContacts()
     .then(function(contacts) {
-      console.log(contacts);
 
       // current time as date and in milliseconds:
       var currentDate = new Date();
@@ -23,6 +22,12 @@ angular.module('followApp')
       $scope.data.contacts = contacts;
     });
   };
+
+  $scope.navigateTo = function(contact) {
+    console.log(contact);
+    $rootScope.contact = contact;
+    $location.path('/contact');
+  }
 
   $scope.getContacts();
 
