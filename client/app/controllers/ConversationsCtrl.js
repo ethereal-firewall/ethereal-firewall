@@ -19,6 +19,7 @@ angular.module('followApp')
   };
 
   $scope.getConversations = function() {
+    console.log("Here was the user ", $rootScope.user);
     console.log($routeParams.id);
     ConversationsFactory.getConversations($routeParams.id)
     .then(function(conversations) {
