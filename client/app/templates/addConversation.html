@@ -1,6 +1,6 @@
 <!-- addConversation.html -->
 
-<div class="addConversation">
+<div class="addConversation" ng-show="showAddConversation">
   <h3>Create Conversation</h3>
   <form class="conversationForm" ng-submit="addConversation()">
     <input type="text" placeholder="Contact Method" class="conversationMedium" ng-model="conversation.MediumId">
