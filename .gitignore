@@ -3,5 +3,6 @@
 /client/dist/*.js
 /client/dist/*.css
 /client/dist/*.*
+dump.rdb
 
 .DS_store

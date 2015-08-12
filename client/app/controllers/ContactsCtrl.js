@@ -23,6 +23,16 @@ angular.module('followApp')
     });
   };
 
+  $scope.addContact = function() {
+    $scope.contact.UserId = $rootScope.user;
+    ContactsFactory.addContact($scope.contact)
+    .then(function(contact) {
+      console.log("created new contact ", contact);
+      $rootScope.contact = contact;
+      $location.path('/contact/' + contact.id);
+    });
+  }
+
   $scope.navigateTo = function(contact) {
     console.log(contact);
     $rootScope.contact = contact;

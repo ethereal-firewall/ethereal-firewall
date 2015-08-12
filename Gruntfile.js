@@ -68,7 +68,7 @@ module.exports = function(grunt) {
       },
       clientcss: {
         files: ['client/assets/styles/**/*.scss'],
-        tasks: ['concat:clientscss', 'sass']
+        tasks: ['jshint', 'build']
       }
     },
 
@@ -101,6 +101,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-nodemon');
+  grunt.loadNpmTasks('grunt-services');
 
   // Dev Env //////////////////////////////////////////////////////////////
   grunt.registerTask('server-dev', function(target) {
@@ -109,22 +110,24 @@ module.exports = function(grunt) {
       grunt: true,
       args: 'nodemon'
     });
+    
 
     nodemon.stdout.pipe(process.stdout);
     nodemon.stderr.pipe(process.stderr);
 
+    grunt.task.run(['startRedis']);
     grunt.task.run(['watch']);
   })
 
   // Helper Tasks /////////////////////////////////////////////////////////
-  grunt.registerTask('default', ['concat', 'sass', 'watch']);
+  //grunt.registerTask('default', ['concat', 'sass', 'watch']);
   grunt.registerTask('build', [ 
     'concat', 
     'sass',
     'uglify',
     'cssmin'
   ]);
-  grunt.registerTask('start', ['nodemon']);
+  //grunt.registerTask('start', ['nodemon']);
 
   grunt.registerTask('test', [
     'jshint'
