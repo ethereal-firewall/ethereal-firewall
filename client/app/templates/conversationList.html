@@ -1,5 +1,5 @@
 <div class="conversationList">
-  <div class="conversationItem" ng-repeat="conversation in data.conversations" ng-click="navigateTo($event)">
+  <div class="conversationItem" ng-repeat="conversation in data.conversations | orderBy: '-dateTime'" ng-click="navigateTo($event)">
     <div class="mediumImage">{{conversation.MediumId}}</div>
     <div class="contactName">{{ conversation.summary }}</div>
     <div class="conversationDays">{{ conversation.dateTime | amCalendar }}</div>
