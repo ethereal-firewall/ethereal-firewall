@@ -1,7 +1,8 @@
 <ul class="contacts">
   <li ng-repeat="contact in data.contacts" ng-click="navigateTo($event)">
-    <div class="interval overdue">-5</div>
+    <div class="interval overdue">{{contact.due }}</div>
     <img class="profile" src="/assets/icons/profile.png">
     <h3>{{ contact.firstName }} {{ contact.lastName }}</h3>
   </li>
 </ul>
+
