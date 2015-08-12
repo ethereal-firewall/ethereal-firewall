@@ -16,9 +16,17 @@ module.exports.signup = function (req, res, next) {
     })
     .spread(function (user, created) {
       if (created) {
-        utils.sendResponse(res, 201, user);
+        utils.createSession(req, username, function () {
+          utils.hashPassword(password, function (hash) {
+            user.password = hash;
+            user.save().then(function (user) {
+              delete user.password;
+              utils.sendResponse(res, 201, user);
+            });
+          });
+        });
       } else {
-        utils.sendResponse(res, 200, user);
+        utils.sendResponse(res, 403, 'User Already Exists!');
       }
     })
     .catch(function (err) {
@@ -28,5 +36,27 @@ module.exports.signup = function (req, res, next) {
 };
 
 module.exports.signin = function (req, res, next) {
-  // not sure how to handle this yet
+  var models = req.app.get('models');
+  var User = models.User;
+
+  var username = req.body.username;
+  var password = req.body.password;
+
+  User.sync().then(function () {
+    User.find({
+      where: { username: username }
+    })
+    .then(function (user) {
+      utils.comparePassword(password, user.password, function (isMatch) {
+        if (isMatch) {
+          delete user.password;
+          utils.createSession(req, username, function () {  
+            utils.sendResponse(res, 200, user);
+          });
+        } else {
+          utils.sendResponse(res, 401, 'Invalid Credentials');
+        }
+      });
+    })
+  });
 };

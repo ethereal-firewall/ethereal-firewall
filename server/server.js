@@ -1,12 +1,23 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var Sequelize = require('sequelize');
+var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
 
 var db = require('./config/db');
 
 var app = express();
 
 app.set('models', db);
+
+app.use(session({
+  store: new RedisStore({
+    host: '127.0.0.1',
+    port: '6379'
+  }),
+  resave: true,
+  saveUninitialized: true,
+  secret: 'darrylhatescssyeshedoesohyeshedoes'
+}));
 
 require('./config/middleware.js')(app, express);
 
