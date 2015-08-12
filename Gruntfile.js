@@ -68,7 +68,7 @@ module.exports = function(grunt) {
       },
       clientcss: {
         files: ['client/assets/styles/**/*.scss'],
-        tasks: ['concat:clientscss', 'sass']
+        tasks: ['jshint', 'build']
       }
     },
 
@@ -120,14 +120,14 @@ module.exports = function(grunt) {
   })
 
   // Helper Tasks /////////////////////////////////////////////////////////
-  grunt.registerTask('default', ['concat', 'sass', 'watch']);
+  //grunt.registerTask('default', ['concat', 'sass', 'watch']);
   grunt.registerTask('build', [ 
     'concat', 
     'sass',
     'uglify',
     'cssmin'
   ]);
-  grunt.registerTask('start', ['nodemon']);
+  //grunt.registerTask('start', ['nodemon']);
 
   grunt.registerTask('test', [
     'jshint'
