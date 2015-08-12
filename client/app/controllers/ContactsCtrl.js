@@ -5,7 +5,9 @@ angular.module('followApp')
   $scope.data = {};
   $scope.data.contacts = [];
   $rootScope.user = 3;
-  $rootScope.order = 'due';
+  $rootScope.order = 'due'; // Todo: Does this need to be on rootscope? - Darryl
+
+  $scope.showAddForm = false;
 
   $scope.getContacts = function() {
     ContactsFactory.getContacts()
@@ -53,15 +55,23 @@ angular.module('followApp')
 
   $scope.searchfocus = function() {
     console.log('search has focus...');
-  }
+  };
 
   $scope.searchblur = function() {
     console.log('search lost focus...');
-  }
+  };
 
   $scope.setOrder = function(order) {
     $rootScope.order = order;
-  }
+  };
+
+  $scope.toggleAddForm = function() {
+    if ($scope.showAddForm) {
+      $scope.showAddForm = false;
+    } else {
+      $scope.showAddForm = true;
+    }
+  };
 
 }]);
 
