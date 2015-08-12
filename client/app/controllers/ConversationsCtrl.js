@@ -10,7 +10,6 @@ angular.module('followApp')
 
   $scope.addConversation = function() {
     console.log('inside addConversation ', $scope.conversation.date.toISOString());
-    debugger;
     $scope.conversation.ContactId = $scope.contact.id;
     $scope.conversation.dateTime = $scope.conversation.date.toISOString();
     ConversationsFactory.addConversation($scope.conversation)
