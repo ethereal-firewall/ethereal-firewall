@@ -10,10 +10,12 @@ var app = express();
 app.set('models', db);
 
 app.use(session({
-  store: new RedisStore(),
-  genid: function(req) {
-    return genuuid()
-  },
+  store: new RedisStore({
+    host: '127.0.0.1',
+    port: '6379'
+  }),
+  resave: true,
+  saveUninitialized: true,
   secret: 'darrylhatescssyeshedoesohyeshedoes'
 }));
 
