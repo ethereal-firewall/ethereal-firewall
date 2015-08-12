@@ -13,17 +13,19 @@
 
 <div class="conversationCreator">
   <div class="mediumImage">
-    <a href="mailto://{{data.email}}"><img src=""></a>
+    <a href="mailto://{{data.email}}">EMAIL<img src=""></a>
   </div>
   <div class="mediumImage">
-    <a href="tel://{{data.phone}}"><img src=""></a>
+    <a href="tel://{{data.phone}}">PHONE<img src=""></a>
   </div>
   <div class="mediumImage">
-    <a href="sms://{{data.phone}}"><img src=""></a>
+    <a href="sms://{{data.phone}}">SMS<img src=""></a>
   </div>
-  <div class="mediumImage">
-    <a href="/createConversation"><img src=""></a>
+  <div class="mediumImage" ng-click="toggleConversationForm()">
+    CUSTOM<img src="">
   </div>
 </div>
+
+<add-conversation ng-show="showAddConversation"></add-conversation>
 
 <conversation-list></conversation-list>
