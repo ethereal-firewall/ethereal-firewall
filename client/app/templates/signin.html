@@ -1,9 +1,9 @@
 <h1>Sign In</h1>
 
 <form class="signin" ng-submit="signin()">
-  <label><input ng-model="user.username">Username</label>
-  <label><input ng-model="user.password">Password</label>
-  <input type="submit">
+  <input ng-model="user.username" placeholder="Username" type="text">
+  <input ng-model="user.password" placeholder="Password" type="password">
+  <input type="submit" value="Sign in!">
 </form>
 
 <a href="#/signup">New to FollowApp? Sign up!</a>
