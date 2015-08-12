@@ -28,7 +28,7 @@ exports.comparePassword = function (password, hash, callback) {
   });
 };
 
-exports.createSession = function (req, username, callback) {
+exports.createSession = function (req, user, callback) {
   return req.session.regenerate(function () {
     req.session.user = user;
     callback();
