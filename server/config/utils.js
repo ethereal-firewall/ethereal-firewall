@@ -30,7 +30,15 @@ exports.comparePassword = function (password, hash, callback) {
 
 exports.createSession = function (req, username, callback) {
   return req.session.regenerate(function () {
-    req.session.user = username;
+    req.session.user = user;
     callback();
   });
+};
+
+exports.checkSession = function (req, callback) {
+  if (req.session) {
+    callback(req.session.user);
+  } else {
+    callback(null);
+  }
 };
