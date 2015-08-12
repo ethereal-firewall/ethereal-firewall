@@ -1,10 +1,11 @@
 angular.module('followApp')
 
-.controller('ConversationsCtrl', ['$scope', '$rootScope', '$routeParams', 'ConversationsFactory', function($scope, $rootScope, $routeParams, ConversationsFactory) {
+.controller('ConversationsCtrl', ['$scope', '$rootScope', '$routeParams', 'ConversationsFactory', 'ContactsFactory', 
+  function($scope, $rootScope, $routeParams, ConversationsFactory, ContactsFactory) {
 
   $scope.data = {};
   $scope.data.conversations = [];
-  $scope.contact = $rootScope.contact;
+  //$scope.contact = $rootScope.contact;
   //$rootScope.user = 3;
 
   $scope.addConversation = function() {
@@ -29,6 +30,14 @@ angular.module('followApp')
     });
   };
 
+  $scope.getContact = function() {
+    ContactsFactory.getContact($routeParams.id)
+    .then(function(contact) {
+      $scope.contact = contact;
+    });
+  };
+
+  $scope.getContact();
   $scope.getConversations();
   
 }]);
