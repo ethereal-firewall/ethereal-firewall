@@ -3,8 +3,11 @@
 <div class="addConversation" ng-show="showAddConversation">
   <h3>Create Conversation</h3>
   <form class="conversationForm" ng-submit="addConversation()">
+    
     <input type="text" placeholder="Contact Method" class="conversationMedium" ng-model="conversation.MediumId">
-    <input type="text" placeholder="Date/Time" class="conversationDateTime" ng-model="conversation.dateTime">
+    
+    <input type="date" class="conversationDateTime" ng-model="conversation.date">
+    
     <textarea placeholder="Summary" class="contactName" ng-model="conversation.summary"></textarea>
     <input type="submit">
   </form>

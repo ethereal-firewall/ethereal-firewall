@@ -9,7 +9,10 @@ angular.module('followApp')
   //$rootScope.user = 3;
 
   $scope.addConversation = function() {
-    $scope.conversation.ContactId = $rootScope.contact.id;
+    console.log('inside addConversation ', $scope.conversation.date.toISOString());
+    debugger;
+    $scope.conversation.ContactId = $scope.contact.id;
+    $scope.conversation.dateTime = $scope.conversation.date.toISOString();
     ConversationsFactory.addConversation($scope.conversation)
     .then(function(conversation) {
       $scope.data.conversations.push(conversation);
