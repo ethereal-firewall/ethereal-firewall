@@ -42,3 +42,7 @@ exports.checkSession = function (req, callback) {
     callback(null);
   }
 };
+
+exports.destroySession = function (req) {
+  if (req.session) req.session.destroy();
+};

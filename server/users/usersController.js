@@ -67,3 +67,8 @@ module.exports.checkSignedIn = function (req, res, next) {
     else utils.sendResponse(res, 401, null);
   });
 };
+
+module.exports.signout = function (req, res, next) {
+  utils.destroySession();
+  utils.sendResponse(res, 200, 'Signed out');
+};
