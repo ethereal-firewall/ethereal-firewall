@@ -30,7 +30,13 @@ angular.module('followApp')
 
     // Signout
     signout : function() {
-      return null;
+      return $http({
+        method: "GET",
+        url: "/users/signout",
+      })
+      .then(function(res) {
+        return res.data;
+      })
     },
 
     isAuth : function() {
