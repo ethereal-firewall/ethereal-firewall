@@ -101,6 +101,9 @@ $pad: 10px;
 
 html, body{ 
   height: 100%;
+  max-width: 480px;
+  position: relative;
+  margin: 0 auto;
 }
 
 .left {
