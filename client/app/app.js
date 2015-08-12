@@ -1,4 +1,4 @@
-angular.module('followApp', ['ngRoute'])
+angular.module('followApp', ['ngRoute', 'angularMoment'])
 .controller('AppCtrl', ['$scope', function($scope){
  
 }])
