@@ -2,12 +2,13 @@ angular.module('followApp')
 
 .controller('ContactsCtrl', ['$scope', '$rootScope', '$location', 'ContactsFactory', function($scope, $rootScope, $location, ContactsFactory) {
 
+  $rootScope.contact = {};
+
   $scope.data = {};
   $scope.data.contacts = [];
-  $rootScope.user = 3;
   $rootScope.order = 'due'; // Todo: Does this need to be on rootscope? - Darryl
-
   $scope.showAddForm = false;
+  //$rootScope.user = 3;
 
   $scope.getContacts = function() {
     ContactsFactory.getContacts()
@@ -27,7 +28,7 @@ angular.module('followApp')
   };
 
   $scope.addContact = function() {
-    $scope.contact.UserId = $rootScope.user;
+    $scope.contact.UserId = $rootScope.user.id;
     ContactsFactory.addContact($scope.contact)
     .then(function(contact) {
       console.log("created new contact ", contact);
@@ -72,6 +73,8 @@ angular.module('followApp')
       $scope.showAddForm = true;
     }
   };
+
+  console.log("User is ", $rootScope.user);
 
 }]);
 

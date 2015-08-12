@@ -34,13 +34,17 @@ angular.module('followApp')
     },
 
     isAuth : function() {
-      if ($rootScope.user != null) {
-        return true;
-      }
-      else {
-        return false;
-      }
-    }
+      return $http({
+        method: "GET",
+        url: "/users/signedin"
+      })
+      .then(function(res) {
+        return res.data;
+      })
+      .catch(function(res) {
+        return null;
+      })
+    },
 
   };
 
