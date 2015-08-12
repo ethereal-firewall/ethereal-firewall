@@ -41,11 +41,6 @@ angular.module('followApp')
     return dueDate;
   };
 
-
-  $scope.addContact = function() {
-    console.log('add contact clicked');
-  };
-
   $scope.searchfocus = function() {
     console.log('search has focus...');
   }
