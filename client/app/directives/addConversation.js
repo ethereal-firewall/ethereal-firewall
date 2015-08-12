@@ -4,6 +4,6 @@ angular.module('followApp')
 .directive('addConversation', function () {
   return {
     restrict: 'E',
-    template: 'app/templates/addCoversation.html'
+    templateUrl: 'app/templates/addConversation.html'
   };
 });
