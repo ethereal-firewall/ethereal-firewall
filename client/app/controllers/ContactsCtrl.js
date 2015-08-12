@@ -26,7 +26,7 @@ angular.module('followApp')
   $scope.navigateTo = function(contact) {
     console.log(contact);
     $rootScope.contact = contact;
-    $location.path('/contact');
+    $location.path('/contact/' + contact.id);
   }
 
   $scope.getContacts();

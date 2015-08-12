@@ -14,7 +14,7 @@ angular.module('followApp')
     templateUrl: 'app/templates/signup.html',
     controller: 'AuthCtrl',
   })
-  .when('/contact', {
+  .when('/contact/:id', {
     // signin html and controller
     templateUrl: 'app/templates/contact.html',
     controller: 'ConversationsCtrl',

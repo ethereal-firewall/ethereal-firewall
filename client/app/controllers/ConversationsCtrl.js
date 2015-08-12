@@ -1,6 +1,6 @@
 angular.module('followApp')
 
-.controller('ConversationsCtrl', ['$scope', '$rootScope', 'ConversationsFactory', function($scope, $rootScope, ConversationsFactory) {
+.controller('ConversationsCtrl', ['$scope', '$rootScope', '$routeParams', 'ConversationsFactory', function($scope, $rootScope, $routeParams, ConversationsFactory) {
 
   $scope.data = {};
   $scope.data.conversations = [];
@@ -14,7 +14,8 @@ angular.module('followApp')
   };
 
   $scope.getConversations = function() {
-    ConversationsFactory.getConversations()
+    console.log($routeParams.id);
+    ConversationsFactory.getConversations($routeParams.id)
     .then(function(conversations) {
       console.log("Conversations: ", conversations);
       $scope.data.conversations = conversations; 
