@@ -1,4 +1,14 @@
-<toolbar></toolbar>
+<div class="toolbar">
+  <ul class="actions"> 
+    <li class="add" ng-click="toggleAddForm()">Add a contact</li>
+    <li class="sort-az" ng-click="setOrder('firstName')">Sort by A to Z</li>
+    <li class="sort-interval" ng-click="setOrder('due')">Sort by interval</li>
+  </ul>
+  <form class="searchform">
+    <input placeholder="Search..." class="search" ng-model="search" ng-focus="searchfocus()" ng-blur="searchblur()">
+  </form>
+</div>
+
 <add-contact></add-contact>
 <contact-list></contacts-list>
 

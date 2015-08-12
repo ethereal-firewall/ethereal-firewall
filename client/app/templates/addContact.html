@@ -1,4 +1,4 @@
-<div class="addContact">
+<div class="addContact" ng-show="showAddForm">
   <form class="contactForm" ng-submit="addContact()">
     <input type="text" placeholder="First Name" class="contactName" ng-model="contact.firstName">
     <input type="text" placeholder="Last Name" class="contactName" ng-model="contact.lastName">
