@@ -20,6 +20,7 @@
     "grunt-sass": "^1.0.0",
     "morgan": "^1.6.1",
     "mysql": "^2.8.0",
+    "redis": "^0.12.1",
     "sequelize": "^3.5.1"
   }
 }
