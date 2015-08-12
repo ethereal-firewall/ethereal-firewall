@@ -7,10 +7,15 @@ angular.module('followApp')
   //$rootScope.user = 3;
 
   $scope.addConversation = function() {
+    $scope.conversation.contactId = $rootScope.contact.id;
     ConversationsFactory.addConversation($scope.conversation)
-    .then(function() {
-
+    .then(function(conversation) {
+      console.log(conversation);
     });
+  };
+
+  $scope.toggleConversationForm = function () {
+    $scope.showAddConversation = !$scope.showAddConversation;
   };
 
   $scope.getConversations = function() {
