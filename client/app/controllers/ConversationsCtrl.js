@@ -4,6 +4,7 @@ angular.module('followApp')
 
   $scope.data = {};
   $scope.data.conversations = [];
+  $scope.contact = $rootScope.contact;
   //$rootScope.user = 3;
 
   $scope.addConversation = function() {
