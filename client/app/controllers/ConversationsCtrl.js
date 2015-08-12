@@ -15,6 +15,8 @@ angular.module('followApp')
     ConversationsFactory.addConversation($scope.conversation)
     .then(function(conversation) {
       $scope.data.conversations.push(conversation);
+      $scope.conversation = {};
+      $scope.toggleConversationForm();
     });
   };
 
