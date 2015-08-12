@@ -1,9 +1,8 @@
-<h1>Sign Up</h1>
 
-<form class="signup" ng-submit="signup()">
+<form class="signup general" ng-submit="signup()">
+  <h3>Sign Up</h3>
   <input ng-model="user.username" placeholder="Username" type="text">
   <input ng-model="user.password" placeholder="Password" type="password">
   <input type="submit" value="Sign up!">
+  <p>Already have an account? <a href="#/signin">Sign in!</a></p>
 </form>
-
-<a href="#/signin">Already have an account?  Sign in!</a>

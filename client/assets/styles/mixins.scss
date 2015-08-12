@@ -7,18 +7,18 @@
 
 @mixin placeholder-color($color) {
   ::-webkit-input-placeholder {
-     color: $color;
+     color: $color !important;
   }
   /* Firefox 18- */
   :-moz-placeholder {
-     color: $color;  
+     color: $color !important;  
   }
   /* Firefox 19+ */
   ::-moz-placeholder {
-     color: $color;  
+     color: $color !important;  
   }
   :-ms-input-placeholder {  
-     color: $color;  
+     color: $color !important;  
   }  
 }
 
