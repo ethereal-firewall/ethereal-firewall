@@ -5,10 +5,12 @@
   <div class="menu"><img src=""></div>
 </div>
 
-<div class="contactHeader">
-  <div class="contactImage"><img src=""></div>
-  <div class="contactName">{{data.firstName}} {{data.lastName}}</div>
-  <div class="contactDays">{{data.timeToNext}}</div>
+<div class="contacts">
+  <div class="interval overdue">{{ contact.due }}</div>
+  <img class="profile" src="/assets/icons/profile.png">
+<!--   <div class="contactName">{{data.firstName}} {{data.lastName}}</div>
+  <div class="contactDays">{{data.due}}</div> -->
+  <h3>{{ contact.firstName }} {{ contact.lastName }}</h3>
 </div>
 
 <div class="conversationCreator">
