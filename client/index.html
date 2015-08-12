@@ -9,22 +9,46 @@
     <!--[if IE]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
   </head>
   <body layout="column" ng-controller="AppCtrl">
 
     <div class="heading">
-      <a class="action back left"></a>
-      <a class="action more right"></a>
+      <div class="more">
+        <div class="icon"></div>
+        <ul class="hide">
+          <!-- <li>Profile</li> -->
+          <li class="signout">Sign out!</li>
+        </ul>
+      </div>
       <h1>FollowApp</h1>
     </div>
 
     <div class="scroll">
       <div ng-view></div>
+      <footer>
+        Copyright &copy; 2015 <strong>BDLX</strong>
+        <ul>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </footer>
     </div>
-    
+  
     <!-- Angular Material Dependencies -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular-route.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="/dist/main.js"></script>
+
+    <!-- Move this to external file!! -->
+    <script>
+      $('body').on('focus blur', '.toolbar .search', function() {
+        $('.toolbar .actions').fadeToggle();
+      });
+      $('body').on('click', '.heading .more', function() {
+        $('.heading ul').fadeToggle();
+      });
+    </script>
   </body>
 </html>
