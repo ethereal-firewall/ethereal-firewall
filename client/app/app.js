@@ -1,6 +1,12 @@
 angular.module('followApp', ['ngRoute', 'angularMoment'])
-.controller('AppCtrl', ['$scope', function($scope){
- 
+.controller('AppCtrl', ['$scope', '$location', 'AuthFactory', function($scope, $location, AuthFactory){
+  $scope.signout = function() {
+    AuthFactory.signout()
+    .then(function() {
+      $rootScope.user = {};
+      $location.path('/signin');
+    });
+  };
 }])
 .run(['$rootScope', '$location', 'AuthFactory', function($rootScope, $location, AuthFactory) {
   

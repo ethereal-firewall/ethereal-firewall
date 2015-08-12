@@ -17,7 +17,15 @@ angular.module('followApp')
     .then(function(user) {
       $rootScope.user = user;
       $location.path('/');
-    })
-  }
+    });
+  };
+
+  $scope.signout = function() {
+    AuthFactory.signout()
+    .then(function() {
+      $rootScope.user = {};
+      $location.path('/signin');
+    });
+  };
   
 }]);

@@ -21,6 +21,8 @@ angular.module('followApp')
   })
   .when('/signout', {
     // signout html and controller
+    templateUrl: 'app/templates/signin.html',
+    controller: 'AuthCtrl',
   })
   .otherwise({redirectTo: '/signin'});
 }]);
