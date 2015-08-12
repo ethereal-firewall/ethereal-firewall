@@ -6,9 +6,10 @@ angular.module('followApp')
 
     // Get all the Contact's conversations
     getConversations : function(contactId) {
+      console.log("What was the user? ",$rootScope.user);
       return $http({
         method: "GET",
-        url: "/users/" + $rootScope.user + "/contacts/" + contactId + '/conversations',
+        url: "/users/" + $rootScope.user.id + "/contacts/" + contactId + '/conversations',
       })
       .then(function(res) {
         console.log(res.data);
@@ -20,7 +21,7 @@ angular.module('followApp')
     addConversation : function(conversation) {
       return $http({
         method: "POST",
-        url: "/users/" + $rootScope.user + "/contacts/" + $rootScope.contact.id + '/conversations',
+        url: "/users/" + $rootScope.user.id + "/contacts/" + $rootScope.contact.id + '/conversations',
         data: conversation,
       })
       .then(function(res) {

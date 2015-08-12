@@ -9,7 +9,6 @@ angular.module('followApp', ['ngRoute', 'angularMoment'])
     if (next.$$route.originalPath !== '/signup' && next.$$route.originalPath !== '/signin') {
       AuthFactory.isAuth()
       .then(function(auth) {
-        console.log("This is the Auth ", auth);
         if (auth) {
           $rootScope.user = auth;
         }
