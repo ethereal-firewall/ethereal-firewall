@@ -29,6 +29,10 @@ a {
   &:hover {
     color: $pink;
   }
+  &.logo {
+    text-decoration: none;
+    color: $dark;
+  }
 }
 
 // Typography
