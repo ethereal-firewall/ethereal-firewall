@@ -1,10 +1,10 @@
 <div class="toolbar" ng-controller="ToolbarCtrl">
   <ul class="actions"> 
-    <li class="add">Add a contact</li>
+    <li class="add" ng-click="addContact()">Add a contact</li>
     <li class="sort-az">Sort by A to Z</li>
     <li class="sort-interval">Sort by interval</li>
   </ul>
   <form class="searchform">
-    <input type="text" placeholder="Search..." class="search" ng-model="search">
+    <input placeholder="Search..." class="search" ng-model="search" ng-focus="searchfocus()" ng-blur="searchblur()">
   </form>
-</div>  
+</div>
