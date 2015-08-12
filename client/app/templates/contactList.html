@@ -1,8 +1,18 @@
+<div class="toolbar">
+  <ul class="actions"> 
+    <li class="add" ng-click="addContact()">Add a contact</li>
+    <li class="sort-az" ng-click="setOrder('firstName')">Sort by A to Z</li>
+    <li class="sort-interval" ng-click="setOrder('due')">Sort by interval</li>
+  </ul>
+  <form class="searchform">
+    <input placeholder="Search..." class="search" ng-model="search" ng-focus="searchfocus()" ng-blur="searchblur()">
+  </form>
+</div>
+
 <ul class="contacts">
-  <li ng-repeat="contact in data.contacts" ng-click="navigateTo(contact)">
-    <div class="interval overdue">{{contact.due }}</div>
+  <li ng-repeat="contact in data.contacts | orderBy:order | filter:search" ng-click="navigateTo(contact)">
+    <div class="interval overdue">{{ contact.due }}</div>
     <img class="profile" src="/assets/icons/profile.png">
     <h3>{{ contact.firstName }} {{ contact.lastName }}</h3>
   </li>
 </ul>
-

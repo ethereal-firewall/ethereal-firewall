@@ -5,6 +5,7 @@ angular.module('followApp')
   $scope.data = {};
   $scope.data.contacts = [];
   $rootScope.user = 3;
+  $rootScope.order = 'due';
 
   $scope.getContacts = function() {
     ContactsFactory.getContacts()
@@ -49,6 +50,18 @@ angular.module('followApp')
     // return due date
     return dueDate;
   };
+
+  $scope.searchfocus = function() {
+    console.log('search has focus...');
+  }
+
+  $scope.searchblur = function() {
+    console.log('search lost focus...');
+  }
+
+  $scope.setOrder = function(order) {
+    $rootScope.order = order;
+  }
 
 }]);
 
