@@ -2,7 +2,7 @@ angular.module('followApp')
 
 .controller('AuthCtrl', ['$scope', '$rootScope', '$location', 'AuthFactory', function($scope, $rootScope, $location, AuthFactory) {
 
-  $rootScope.user = null;
+  $rootScope.user = 3;
 
   $scope.signup = function() {
     AuthFactory.signup($scope.user)

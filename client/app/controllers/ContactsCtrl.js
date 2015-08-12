@@ -1,9 +1,10 @@
 angular.module('followApp')
 
-.controller('ContactsCtrl', ['$scope', 'ContactsFactory', function($scope, ContactsFactory) {
+.controller('ContactsCtrl', ['$scope', '$rootScope', 'ContactsFactory', function($scope, $rootScope, ContactsFactory) {
 
   $scope.data = {};
   $scope.data.contacts = [];
+  $rootScope.user = 3;
 
   $scope.getContacts = function() {
     ContactsFactory.getContacts()
