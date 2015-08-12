@@ -2,11 +2,11 @@ angular.module('followApp')
 .factory('ContactsFactory', ['$http', '$rootScope', function($http, $rootScope) {
 
   return {
-    getContact : function() {
+    getContact : function(contactId) {
       
       return $http({
         method: "GET",
-        url: "/users/" + $rootScope.user.id + "contacts/" + $rootScope.contact.id,
+        url: "/users/" + $rootScope.user.id + "/contacts/" + contactId,
       })
       .then(function(res) {
         return res.data;
