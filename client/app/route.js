@@ -16,6 +16,8 @@ angular.module('followApp')
   })
   .when('/contact', {
     // signin html and controller
+    templateUrl: 'app/templates/contact.html',
+    controller: 'ConversationsCtrl',
   })
   .when('/signout', {
     // signout html and controller

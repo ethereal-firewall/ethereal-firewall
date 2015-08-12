@@ -14,10 +14,13 @@ angular.module('followApp')
   };
 
   $scope.getConversations = function() {
-    ConverstaionsFactory.getConversations()
+    ConversationsFactory.getConversations()
     .then(function(conversations) {
+      console.log("Conversations: ", conversations);
       $scope.data.conversations = conversations; 
     });
   };
+
+  $scope.getConversations();
   
 }]);
