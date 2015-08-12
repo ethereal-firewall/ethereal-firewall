@@ -5,11 +5,10 @@ angular.module('followApp')
   return  {
 
     // Get all the Contact's conversations
-    getConversations : function() {
-      console.log([$rootScope.user, $rootScope.contact.id]);
+    getConversations : function(contactId) {
       return $http({
         method: "GET",
-        url: "/users/" + $rootScope.user + "/contacts/" + $rootScope.contact.id + '/conversations',
+        url: "/users/" + $rootScope.user + "/contacts/" + contactId + '/conversations',
       })
       .then(function(res) {
         console.log(res.data);
