@@ -39,6 +39,7 @@ module.exports.updateContact = function (req, res) {
     phone: req.body.phone,
     email: req.body.email,
     interval: req.body.interval,
+    nextDate: req.body.nextDate,
   };
 
   var contactId = req.params.contactId;
