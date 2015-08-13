@@ -1,7 +1,8 @@
-<div class="conversationList">
-  <div class="conversationItem" ng-repeat="conversation in data.conversations | orderBy: '-dateTime'" ng-click="navigateTo($event)">
-    <div class="mediumImage">{{conversation.MediumId}}</div>
-    <div class="contactName">{{ conversation.summary }}</div>
-    <div class="conversationDays">{{ conversation.dateTime | amCalendar }}</div>
-  </div>
-</div>
+<ul class="conversation">
+  <li ng-repeat="conversation in data.conversations | orderBy: '-dateTime'" ng-click="navigateTo($event)">
+    <span class="date" ng-show="conversation.dateTime">{{ conversation.dateTime | amCalendar }}</span>
+    <p>{{ conversation.summary }}</p>
+  </li>
+  <li ng-show="data.conversations.length===0">There's no history :'(</li>
+</ul>
+<!-- <div class="mediumImage">{{conversation.MediumId}}</div> -->

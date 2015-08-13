@@ -1,6 +1,6 @@
 <ul class="contacts">
   <li ng-repeat="contact in data.contacts | orderBy:order | filter:search" ng-click="navigateTo(contact)">
-    <div class="interval overdue">{{ contact.due }}</div>
+    <div class="interval {{ contact.due <= 8 ? 'overdue' : ''}} {{ contact.due <= 15 ? 'soon' : ''}}">{{ contact.due }}</div>
     <img class="profile" src="/assets/icons/profile.png">
     <h3>{{ contact.firstName }} {{ contact.lastName }}</h3>
   </li>

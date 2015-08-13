@@ -137,14 +137,13 @@ body, input {
 }
 
 form {
-  input {
+  input, select, textarea {
     font-size: 20px;
     margin: 0;
     padding: 10px;
     line-height: 40px;
     box-sizing: border-box;
     border: none;
-    box-sizing: border-box;
     outline: none;
   }
   &.general {
@@ -166,11 +165,24 @@ form {
     background: lighten($dark, 75%);
     padding: $pad;
     
-    input {
+    input, select, textarea {
       @include border-radius(5px);
       width: 100%;
-      margin-bottom: 5px
+      margin-bottom: 5px;
+      font-weight: 300;
     }
+    select {
+      -webkit-appearance:none;
+      background: $light;
+      height: 60px;
+    }
+
+    textarea{
+      line-height: 30px;
+      padding: 15px 10px;
+      min-height: 120px;
+    }
+
     input[type="submit"] {
       background: $pink;
       color: $light;
@@ -196,6 +208,32 @@ h1, h2 {
   line-height: 40px;
 }
 
+.conversation {
+  padding: 20px;
+  li {
+    @include border-radius(5px);
+    padding: 15px 15px 30px;
+    border: 1px dashed lighten($dark, 60%);
+    background: lighten($dark, 80%);
+    margin-bottom: 20px;
+    position: relative;
+    .date {
+      right: -10px;
+      bottom: -10px;
+      position: absolute;
+      font-size: 15px;
+      font-weight: 400;
+      background: lighten($blue, 10%);
+      padding: 5px 10px 5px 40px;
+      @include border-radius(5px);
+      background-image: url('/assets/icons/mail.png');
+      background-size: 20px;
+      background-position: 10px center;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
 .toolbar {
   background: $green;
   border-bottom: 3px solid darken($green, 10%);
@@ -203,6 +241,11 @@ h1, h2 {
   position: relative;
   @include placeholder-color($light);
   .actions {
+    &.left {
+      left: 5px;
+      right: auto;
+    }
+    width: auto;
     position: absolute;
     z-index: 1;
     right: 0;
@@ -212,10 +255,19 @@ h1, h2 {
       @include icon();
       margin-right: 5px;
       margin-top: 5px;
+      a {
+        display: block;
+        width: 50px;
+        height: 50px;
+      }
     }
     .sort-az { background-image: url('/assets/icons/sort-az.png'); }
     .sort-interval { background-image: url('/assets/icons/sort-interval.png'); }
     .add { background-image: url('/assets/icons/add.png'); }
+    .email { background-image: url('/assets/icons/mail.png'); }
+    .sms { background-image: url('/assets/icons/sms.png'); }
+    .phone { background-image: url('/assets/icons/phone.png'); }
+    .back { background-image: url('/assets/icons/back.png'); }
   }
   .search {
     color: $light;
@@ -289,16 +341,12 @@ h1, h2 {
     float: right;
     width: 40px;
     text-align: center;
-    background: lighten($dark, 90%);
+    background: lighten($dark, 80%);
     line-height: 40px;
     margin-top: 10px;
     @include border-radius(100%);
     &.overdue {
-      background: $pink;
-      color: $light;
-    }
-    &.soon {
-      background: $green;
+      background: $pink !important;
       color: $light;
     }
     &.soon {

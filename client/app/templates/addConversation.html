@@ -1,11 +1,12 @@
-<!-- addConversation.html -->
-
 <div class="addConversation" ng-show="showAddConversation">
-  <h3>Create Conversation</h3>
-  <form class="conversationForm" ng-submit="addConversation()">
-    
-    <input type="text" placeholder="Contact Method" class="conversationMedium" ng-model="conversation.MediumId">
-    
+  <form class="conversationForm general" ng-submit="addConversation()">
+    <h3>Create Conversation</h3>
+    <select ng-model="conversation.MediumId">
+      <option value="" selected>Select a method</option>
+      <option value="1" selected>Email</option>
+      <option value="1">SMS</option>
+      <option value="1">Phone</option>
+    </select>
     <input type="date" class="conversationDateTime" ng-model="conversation.date">
     
     <textarea placeholder="Summary" class="contactName" ng-model="conversation.summary"></textarea>

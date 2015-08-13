@@ -1,32 +1,26 @@
-<!-- contact.html -->
-<div class="navigation">
-  <div class="navBack"><img src=""></div>
-  <div class="logo"><img src=""></div>
-  <div class="menu"><img src=""></div>
+<div class="toolbar">
+  <ul class="actions"> 
+    <li class="email" ng-show="contact.email"><a href="mailto:{{contact.email}}">Email</a></li>
+    <li class="phone" ng-show="contact.phone"><a href="tel:{{contact.phone}}">Phone</a></li>
+    <li class="sms" ng-show="contact.phone"><a href="sms:{{contact.phone.replace('-', '')}}">SMS</a></li>
+  </ul>
+
+  <ul class="actions left"> 
+    <li class="back"><a href="#/">Back</a></li>
+    <li class="add" ng-click="toggleConversationForm()">Add a contact</li>
+  </ul>
 </div>
 
-<div class="contacts">
-  <div class="interval overdue">{{ contact.due }}</div>
-  <img class="profile" src="/assets/icons/profile.png">
-<!--   <div class="contactName">{{data.firstName}} {{data.lastName}}</div>
-  <div class="contactDays">{{data.due}}</div> -->
-  <h3>{{ contact.firstName }} {{ contact.lastName }}</h3>
-</div>
+<ul class="contacts">
+  <li>
+    <div class="interval overdue">{{ contact.interval }}</div>
+    <img class="profile" src="/assets/icons/profile.png">
+    <h3>{{ contact.firstName }} {{ contact.lastName }}</h3>
+  </li>
+</ul>
 
-<div class="conversationCreator">
-  <div class="mediumImage">
-    <a href="mailto://{{data.email}}">EMAIL<img src=""></a>
-  </div>
-  <div class="mediumImage">
-    <a href="tel://{{data.phone}}">PHONE<img src=""></a>
-  </div>
-  <div class="mediumImage">
-    <a href="sms://{{data.phone}}">SMS<img src=""></a>
-  </div>
-  <div class="mediumImage" ng-click="toggleConversationForm()">
-    CUSTOM<img src="">
-  </div>
-</div>
+
+
 
 <add-conversation></add-conversation>
 
