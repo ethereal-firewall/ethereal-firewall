@@ -15,8 +15,15 @@ angular.module('followApp')
       
 
     // change a single user contact info
-    setContact : function() {
-      return null;
+    setContact : function(contactId, update) {
+      return $http({
+        method: "PUT",
+        url: '/users/' + $rootScope.user.id + '/contacts/' + contactId,
+        data: update,
+      })
+      .then(function(res) {
+        return res.data;
+      })
     },
 
     // add a new contact to the user
