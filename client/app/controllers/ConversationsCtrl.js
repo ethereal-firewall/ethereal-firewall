@@ -8,18 +8,25 @@ angular.module('followApp')
   //$scope.contact = $rootScope.contact;
   //$rootScope.user = 3;
 
+  $scope.convertDateTime = function (date, time) {
+    date = new Date(date);
+    time = new Date(time);
+    date = Date.parse(date) - date.getTimezoneOffset() * 60000;
+    time = Date.parse(time) - time.getTimezoneOffset() * 60000;
+    var dateTime = date + time;
+    dateTime += (new Date()).getTimezoneOffset() * 60000;
+    dateTime = new Date(dateTime);
+    return dateTime.toISOString();
+  };
+
   $scope.addConversation = function() {
-
-    console.log('inside addConversation ', $scope.conversation.date.toISOString());
     $scope.conversation.ContactId = $scope.contact.id;
-    $scope.conversation.dateTime = $scope.conversation.date.toISOString();
-
+    $scope.conversation.dateTime = $scope.convertDateTime($scope.conversation.date, $scope.conversation.time);
     ConversationsFactory.addConversation($scope.conversation)
     .then(function(conversation) {
       $scope.data.conversations.push(conversation);
       $scope.updateNextDate()
       .then(function(contact) {
-        console.log(contact);
         $scope.conversation = {};
         $scope.toggleConversationForm();
       });
