@@ -1,5 +1,5 @@
 angular.module('followApp', ['ngRoute', 'angularMoment'])
-.controller('AppCtrl', ['$scope', '$location', 'AuthFactory', function($scope, $location, AuthFactory){
+.controller('AppCtrl', ['$scope', '$rootScope', '$location', 'AuthFactory', function($scope, $rootScope, $location, AuthFactory){
   $scope.signout = function() {
     AuthFactory.signout()
     .then(function() {
