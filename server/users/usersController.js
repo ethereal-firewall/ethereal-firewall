@@ -49,7 +49,9 @@ module.exports.signin = function (req, res, next) {
     .then(function (user) {
       utils.comparePassword(password, user.password, function (isMatch) {
         if (isMatch) {
+          console.log('USER WITH PASSWORD: ', user);
           delete user.password;
+          console.log('USER WITHOUT PASSWORD: ', user);
           utils.createSession(req, user, function () {  
             utils.sendResponse(res, 200, user);
           });
@@ -69,6 +71,6 @@ module.exports.checkSignedIn = function (req, res, next) {
 };
 
 module.exports.signout = function (req, res, next) {
-  utils.destroySession();
+  utils.destroySession(req);
   utils.sendResponse(res, 200, 'Signed out');
 };
