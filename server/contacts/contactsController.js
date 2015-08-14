@@ -54,7 +54,7 @@ module.exports.updateContact = function (req, res) {
         utils.sendResponse(res, 200, 'Contact Updated!');
       })
       .catch(function (err) {
-        console.log(err);
+        console.log('Error: ', err);
       });
   });
 };
@@ -64,7 +64,6 @@ module.exports.getContact = function (req, res) {
   var Contact = models.Contact;
 
   var contactId = req.params.contactId;
-  console.log('req._data: ', req._data);
 
   Contact.sync().then(function () {
     Contact.findById(contactId)
