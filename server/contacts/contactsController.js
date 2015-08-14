@@ -42,7 +42,7 @@ module.exports.updateContact = function (req, res) {
     nextDate: req.body.nextDate,
   };
 
-  var contactId = req.params.contactId;
+  var contactId = req._data.contactId;
 
   var options = {
     where: { id: contactId }
@@ -63,7 +63,7 @@ module.exports.getContact = function (req, res) {
   var models = req.app.get('models');
   var Contact = models.Contact;
 
-  var contactId = req.params.contactId;
+  var contactId = req._data.contactId;
 
   Contact.sync().then(function () {
     Contact.findById(contactId)
@@ -80,11 +80,11 @@ module.exports.getAllContacts = function (req, res) {
   var models = req.app.get('models');
   var Contact = models.Contact;
 
-  var userId = req.userId;
+  var userId = req._data.userId;
 
   Contact.sync().then(function () {
     Contact.findAll({
-        where: { userId: userId }
+        where: { UserId: userId }
       })
       .then(function (contacts) {
         utils.sendResponse(res, 200, contacts);
