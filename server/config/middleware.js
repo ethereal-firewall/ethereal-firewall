@@ -1,6 +1,6 @@
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-// var utils = require('./utils.js');
+var utils = require('./utils.js');
 
 
 module.exports = function(app, express) {
@@ -13,21 +13,11 @@ module.exports = function(app, express) {
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
 
-  // Pass params along to chained routers
-  // params are not able to pass through middleware,
-  // so they need to be bound to req here
-  app.param('userId', function(req, res, next, userId) {
-    req.userId = userId;
-    next();
-  });
+  // Calls to utils.attachParams pass URL parameters along to chained routers.
+  // Parameters are not able to pass through middleware, so they need to be bound to req._data in the helper function.
 
-  app.param('contactId', function(req, res, next, contactId) {
-    req.contactId = contactId;
-    next();
-  });
-
-  app.use('/users/:userId/contacts/:contactId/conversations', conversationsRouter);
-  app.use('/users/:userId/contacts', contactsRouter);
+  app.use('/users/:userId/contacts/:contactId/conversations', utils.attachParams, conversationsRouter);
+  app.use('/users/:userId/contacts', utils.attachParams, contactsRouter);
   app.use('/users', userRouter);
   app.use('/mediums', mediumsRouter)
 

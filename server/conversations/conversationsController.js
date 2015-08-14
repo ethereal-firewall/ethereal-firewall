@@ -28,7 +28,7 @@ module.exports.getAllConversations = function (req, res) {
   var models = req.app.get('models');
   var Conversation = models.Conversation;
 
-  var contactId = req.contactId;
+  var contactId = req._data.contactId;
 
   Conversation.sync().then(function () {
     Conversation.findAll({
