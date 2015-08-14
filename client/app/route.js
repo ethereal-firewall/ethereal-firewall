@@ -19,10 +19,5 @@ angular.module('followApp')
     templateUrl: 'app/templates/contact.html',
     controller: 'ConversationsCtrl',
   })
-  .when('/signout', {
-    // signout html and controller
-    templateUrl: 'app/templates/signin.html',
-    controller: 'AuthCtrl',
-  })
   .otherwise({redirectTo: '/signin'});
 }]);
