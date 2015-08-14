@@ -46,3 +46,8 @@ exports.checkSession = function (req, callback) {
 exports.destroySession = function (req) {
   if (req.session) req.session.destroy();
 };
+
+exports.attachParams = function (req, res, next) {
+  req._data = req.params;
+  next();
+};
