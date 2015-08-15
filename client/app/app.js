@@ -8,8 +8,11 @@ angular.module('followApp', ['ngRoute', 'angularMoment'])
     });
   };
 }])
+.config(['$compileProvider', function ($compileProvider) {
+  $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|mailto|tel|sms):/);
+}])
 .run(['$rootScope', '$location', 'AuthFactory', function($rootScope, $location, AuthFactory) {
-  
+
   $rootScope.$on("$routeChangeStart", function(evt, next, current) {
 
     if (next.$$route.originalPath !== '/signup' && next.$$route.originalPath !== '/signin') {
