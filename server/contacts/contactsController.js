@@ -68,7 +68,8 @@ module.exports.getContact = function (req, res) {
   Contact.sync().then(function () {
     Contact.findById(contactId)
       .then(function (contact) {
-        utils.sendResponse(res, 200, contact);
+        if (contact.UserId === req.session.user.id) utils.sendResponse(res, 200, contact);
+        else utils.sendResponse(res, 401, 'Contact doesn\'t belong to user!');
       })
       .catch(function (error) {
         console.log('Error: ', err);
