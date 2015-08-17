@@ -5,6 +5,7 @@ angular.module('followApp', ['ngRoute', 'angularMoment'])
     .then(function() {
       $rootScope.user = {};
       $location.path('/signin');
+      $('.heading ul').fadeToggle();
     });
   };
 }])
