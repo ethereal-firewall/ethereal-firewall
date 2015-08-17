@@ -1,5 +1,6 @@
 <div class="toolbar">
   <ul class="actions"> 
+    <li class="edit" ng-click="toggleEditForm()">Edit</li>
     <li class="email" ng-show="contact.email" ng-click="initiateConversation(0)">Email</li>
     <li class="phone" ng-show="contact.phone" ng-click="initiateConversation(1)">Phone</li>
     <li class="sms" ng-show="contact.phone" ng-click="initiateConversation(2)">SMS</li>
@@ -23,5 +24,6 @@
 
 
 <add-conversation></add-conversation>
+<edit-contact></edit-contact>
 
 <conversation-list></conversation-list>
