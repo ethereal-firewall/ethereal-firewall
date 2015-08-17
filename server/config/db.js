@@ -1,6 +1,6 @@
 var Sequelize = require('sequelize');
 var sequelize = new Sequelize('_followapp', 'followapp', 'awesomeapp', {
-  host: '',
+  host: 'mysql.baronswindle.com',
   dialect: 'mysql'
 });
 

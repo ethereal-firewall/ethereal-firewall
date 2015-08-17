@@ -8,7 +8,7 @@ var db = require('./config/db');
 
 var client;
 if (process.env.DEPLOY) {  
-  client = redis.createClient(6379, 'ethereal-firewall.redis.cache.windows.net', {auth_pass : '', return_buffers: true});
+  client = redis.createClient(6379, 'ethereal-firewall.redis.cache.windows.net', {auth_pass : 'KiGd5GMzxeBnPSeVnId4pdDJJ9ojeyiM0K/kbrhAeiE=', return_buffers: true});
 }
 else {
   client = redis.createClient(); 
