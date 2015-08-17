@@ -84,7 +84,6 @@ angular.module('followApp')
   };
 
   $scope.toggleEditForm = function () {
-    console.log("toggleEditCalled");
     $scope.showEditConversation = !$scope.showEditConversation;
   };
 
