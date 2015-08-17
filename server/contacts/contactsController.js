@@ -9,13 +9,13 @@ module.exports.addContact = function (req, res) {
   var nextDate = utils.formatDate(new Date(), req.body.interval);
 
   var record = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    phone: req.body.phone,
-    email: req.body.email,
-    interval: req.body.interval,
-    nextDate: nextDate,
-    UserId: req.body.UserId
+    firstName: utils.clean(req.body.firstName),
+    lastName: utils.clean(req.body.lastName),
+    phone: utils.clean(req.body.phone),
+    email: utils.clean(req.body.email),
+    interval: utils.clean(req.body.interval),
+    nextDate: utils.clean(nextDate),
+    UserId: utils.clean(req.body.UserId)
   };
 
   Contact.sync().then(function () {
@@ -34,12 +34,12 @@ module.exports.updateContact = function (req, res) {
   var Contact = models.Contact;
 
   var updatedRecord = {
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    phone: req.body.phone,
-    email: req.body.email,
-    interval: req.body.interval,
-    nextDate: req.body.nextDate,
+    firstName: utils.clean(req.body.firstName),
+    lastName: utils.clean(req.body.lastName),
+    phone: utils.clean(req.body.phone),
+    email: utils.clean(req.body.email),
+    interval: utils.clean(req.body.interval),
+    nextDate: utils.clean(req.body.nextDate),
   };
 
   var contactId = req.params.contactId;

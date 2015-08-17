@@ -6,8 +6,8 @@ module.exports.signup = function (req, res, next) {
   var models = req.app.get('models');
   var User = models.User;
 
-  var username = req.body.username;
-  var password = req.body.password;
+  var username = utils.clean(req.body.username);
+  var password = utils.clean(req.body.password);
 
   User.sync().then(function () {
     User.findOrCreate({
@@ -39,8 +39,8 @@ module.exports.signin = function (req, res, next) {
   var models = req.app.get('models');
   var User = models.User;
 
-  var username = req.body.username;
-  var password = req.body.password;
+  var username = utils.clean(req.body.username);
+  var password = utils.clean(req.body.password);
 
   User.sync().then(function () {
     User.find({

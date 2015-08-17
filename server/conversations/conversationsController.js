@@ -8,10 +8,10 @@ module.exports.addConversation = function (req, res) {
   var Contact = models.Contact;
 
   var record = {
-    dateTime: req.body.dateTime,
-    summary: req.body.summary,
-    ContactId: req.body.ContactId,
-    MediumId: req.body.MediumId
+    dateTime: utils.clean(req.body.dateTime),
+    summary: utils.clean(req.body.summary),
+    ContactId: utils.clean(req.body.ContactId),
+    MediumId: utils.clean(req.body.MediumId)
   };
 
   Contact.sync().then(function () {
