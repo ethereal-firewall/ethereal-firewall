@@ -90,6 +90,30 @@ module.exports = function(grunt) {
       }
     },
 
+    shell: {
+      'git-add': {
+        command: 'git --no-pager add .',
+        options: {
+          stdout: true,
+          stderr: true
+        }
+      },
+      'git-commit': {
+        command: 'git --no-pager commit -m "Deployment"',
+        options: {
+          stdout: true,
+          stderr: true
+        }
+      },
+      'git-push': {
+        command: 'git --no-pager push azure master',
+        options: {
+          stdout: true,
+          stderr: true
+        }
+      }
+    },
+
     nodemon: {
       dev: {
         script: 'server/server.js'
@@ -100,6 +124,7 @@ module.exports = function(grunt) {
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -146,6 +171,7 @@ module.exports = function(grunt) {
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
       // Do production server upload/deployment tasks
+      grunt.task.run(['shell']);
     }
     else {
       grunt.task.run(['build']);
