@@ -43,7 +43,7 @@ angular.module('followApp')
     ConversationsFactory.getConversations($routeParams.id)
     .then(function(conversations) {
       console.log("Conversations: ", conversations);
-      $scope.data.conversations = conversations; 
+      $scope.data.conversations = conversations.length > 0 ? conversations : null;
     });
   };
 

@@ -19,7 +19,7 @@ module.exports.signup = function (req, res, next) {
         utils.hashPassword(password, function (hash) {
           user.password = hash;
           user.save().then(function (user) {
-            delete user.password;
+            user.set('password', null);
             utils.createSession(req, user, function () {
               utils.sendResponse(res, 201, user);
             });
@@ -49,7 +49,7 @@ module.exports.signin = function (req, res, next) {
     .then(function (user) {
       utils.comparePassword(password, user.password, function (isMatch) {
         if (isMatch) {
-          delete user.password;
+          user.set('password', null);
           utils.createSession(req, user, function () {  
             utils.sendResponse(res, 200, user);
           });
