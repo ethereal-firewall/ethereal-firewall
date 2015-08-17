@@ -43,10 +43,8 @@ angular.module('followApp')
     .then(function(conversation) {
       $scope.data.conversations.push(conversation);
       $scope.updateNextDate()
-      .then(function(contact) {
-        $scope.conversation = {};
-        $scope.toggleConversationForm();
-      });
+      $scope.conversation = {};
+      $scope.toggleConversationForm();
     });
   };
 
