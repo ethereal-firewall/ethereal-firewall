@@ -21,7 +21,6 @@ angular.module('followApp')
   $scope.addConversation = function() {
     $scope.conversation.ContactId = $scope.contact.id;
     $scope.conversation.dateTime = $scope.convertDateTime($scope.conversation.date, $scope.conversation.time);
-    console.log($scope.conversation.dateTime);
     ConversationsFactory.addConversation($scope.conversation)
     .then(function(conversation) {
       $scope.data.conversations.push(conversation);
