@@ -49,7 +49,7 @@ angular.module('followApp')
     // calculate current time in UTC
     var now = currentMSDate - currentDate.getTimezoneOffset() * 60000;
     // subtract now from current date
-    var dueDate = Math.floor((nextDate - now) / 86400000);
+    var dueDate = Math.round((nextDate - now) / 86400000);
     // return due date
     return dueDate;
   };
