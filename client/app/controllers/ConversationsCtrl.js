@@ -42,11 +42,8 @@ angular.module('followApp')
   };
 
   $scope.getConversations = function() {
-    console.log("Here was the user ", $rootScope.user);
-    console.log($routeParams.id);
     ConversationsFactory.getConversations($routeParams.id)
     .then(function(conversations) {
-      console.log("Conversations: ", conversations);
       $scope.data.conversations = conversations.length > 0 ? conversations : null;
     });
   };
@@ -63,14 +60,21 @@ angular.module('followApp')
     var offset = (new Date(curr)).getTimezoneOffset() * 60000;
     var interval = $scope.contact.interval * 86400000;
     var nextDate = (new Date(curr + interval - offset)).toISOString();
-    console.log("NextDate is ", nextDate);
     return ContactsFactory.setContact($scope.contact.id, {nextDate:nextDate})
     .then(function(contact) {
       return contact;
     });
   };
 
+  $scope.getMediums = function () {
+    ConversationsFactory.getMediums()
+    .then(function (mediums) {
+      $scope.mediums = mediums;
+    });
+  };
+
   $scope.getContact();
   $scope.getConversations();
+  $scope.getMediums();
   
 }]);
