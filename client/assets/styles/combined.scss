@@ -227,10 +227,12 @@ h1, h2 {
       background: lighten($blue, 10%);
       padding: 5px 10px 5px 40px;
       @include border-radius(5px);
-      background-image: url('/assets/icons/mail.png');
       background-size: 20px;
       background-position: 10px center;
       background-repeat: no-repeat;
+      &.ico1 { background-image: url('/assets/icons/mail.png'); }
+      &.ico2 { background-image: url('/assets/icons/phone.png'); }
+      &.ico3 { background-image: url('/assets/icons/sms.png'); }
     }
   }
 }
@@ -269,6 +271,7 @@ h1, h2 {
     .sms { background-image: url('/assets/icons/sms.png'); }
     .phone { background-image: url('/assets/icons/phone.png'); }
     .back { background-image: url('/assets/icons/back.png'); }
+    .edit { background-image: url('/assets/icons/edit.png'); }
   }
   .search {
     color: $light;

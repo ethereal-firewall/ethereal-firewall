@@ -1,6 +1,6 @@
 <ul class="conversation">
   <li ng-repeat="conversation in data.conversations | orderBy: '-dateTime'" ng-click="navigateTo($event)">
-    <span class="date" ng-show="conversation.dateTime">{{ conversation.dateTime | amCalendar }}</span>
+    <span class="date ico{{ conversation.MediumId }}" ng-show="conversation.dateTime"> {{ conversation.dateTime | amCalendar }}</span>
     <p>{{ conversation.summary }}</p>
   </li>
   <li ng-show="!data.conversations">There's no history :'(</li>
