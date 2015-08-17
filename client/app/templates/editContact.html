@@ -1,0 +1,38 @@
+<div class="addConversation" ng-show="showEditConversation">
+  <form class="editForm general" name="editForm" ng-submit="editForm.$valid && editContact()" novalidate>
+
+    <h3>Edit Contact</h3>
+    
+    <input type="text" 
+           value="{{contact.firstName}}" 
+           class="contactName" 
+           ng-model="contact.firstName"
+           required>
+    
+    <input type="text" 
+           value="{{contact.lastname}}" 
+           class="contactName" 
+           ng-model="contact.lastName"
+           required>
+    
+    <input type="tel" 
+           value="{{contact.phone}}" 
+           class="contactPhone" 
+           ng-model="contact.phone"
+           ng-required="!(contact.phone.length || contact.email.length)">
+    
+    <input type="email" 
+           value="{{contact.email}}" 
+           class="contactEmail" 
+           ng-model="contact.email"
+           ng-required="!(contact.phone.length || contact.email.length)">
+    
+    <input type="text" 
+           value="{{contact.interval}}" 
+           class="contactInterval" 
+           ng-model="contact.interval"
+           required>
+
+    <input type="submit" value="Edit Contact">
+  </form>
+</div>

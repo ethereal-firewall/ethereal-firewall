@@ -83,6 +83,16 @@ angular.module('followApp')
     });
   };
 
+  $scope.toggleEditForm = function () {
+    console.log("toggleEditCalled");
+    $scope.showEditConversation = !$scope.showEditConversation;
+  };
+
+  $scope.editContact = function() {
+    ContactsFactory.setContact($scope.contact.id, $scope.contact);
+    $scope.toggleEditForm();
+  };
+
   $scope.getContact();
   $scope.getConversations();
   $scope.getMediums();
