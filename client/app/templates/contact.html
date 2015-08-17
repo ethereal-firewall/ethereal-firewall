@@ -1,8 +1,8 @@
 <div class="toolbar">
   <ul class="actions"> 
-    <li class="email" ng-show="contact.email"><a href="mailto:{{contact.email}}">Email</a></li>
-    <li class="phone" ng-show="contact.phone"><a href="tel:{{contact.phone}}">Phone</a></li>
-    <li class="sms" ng-show="contact.phone"><a href="sms:{{contact.phone}}">SMS</a></li>
+    <li class="email" ng-show="contact.email" ng-click="initiateConversation('email')">Email</li>
+    <li class="phone" ng-show="contact.phone" ng-click="initiateConversation('phone')">Phone</li>
+    <li class="sms" ng-show="contact.phone" ng-click="initiateConversation('sms')">SMS</li>
   </ul>
 
   <ul class="actions left"> 

@@ -1,7 +1,7 @@
 angular.module('followApp')
 
-.controller('ConversationsCtrl', ['$scope', '$rootScope', '$routeParams', 'ConversationsFactory', 'ContactsFactory', 
-  function($scope, $rootScope, $routeParams, ConversationsFactory, ContactsFactory) {
+.controller('ConversationsCtrl', ['$scope', '$rootScope', '$window', '$routeParams', 'ConversationsFactory', 'ContactsFactory',
+  function($scope, $rootScope, $window, $routeParams, ConversationsFactory, ContactsFactory) {
 
   $scope.data = {};
   $scope.data.conversations = [];
@@ -16,6 +16,19 @@ angular.module('followApp')
     dateTime += (new Date()).getTimezoneOffset() * 60000;
     dateTime = new Date(dateTime);
     return dateTime.toISOString();
+  };
+
+  $scope.initiateConversation = function (medium) {
+    var prefixes = {
+      email: 'mailto:',
+      phone: 'tel:',
+      sms: 'sms:'
+    };
+    var address = prefixes[medium];
+    if (medium === 'sms') medium = 'phone';
+    address += $scope.contact[medium];
+    $window.open(address);
+    $scope.toggleConversationForm();
   };
 
   $scope.addConversation = function() {
