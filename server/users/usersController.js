@@ -69,6 +69,6 @@ module.exports.checkSignedIn = function (req, res, next) {
 };
 
 module.exports.signout = function (req, res, next) {
-  utils.destroySession();
+  utils.destroySession(req);
   utils.sendResponse(res, 200, 'Signed out');
 };
