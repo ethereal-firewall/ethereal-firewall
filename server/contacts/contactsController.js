@@ -54,7 +54,7 @@ module.exports.updateContact = function (req, res) {
         utils.sendResponse(res, 200, 'Contact Updated!');
       })
       .catch(function (err) {
-        console.log(err);
+        console.log('Error: ', err);
       });
   });
 };
@@ -80,11 +80,11 @@ module.exports.getAllContacts = function (req, res) {
   var models = req.app.get('models');
   var Contact = models.Contact;
 
-  var userId = req.userId;
+  var userId = req._data.userId;
 
   Contact.sync().then(function () {
     Contact.findAll({
-        where: { userId: userId }
+        where: { UserId: userId }
       })
       .then(function (contacts) {
         utils.sendResponse(res, 200, contacts);
