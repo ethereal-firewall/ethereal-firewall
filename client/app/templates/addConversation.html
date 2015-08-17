@@ -5,9 +5,7 @@
 
     <select ng-model="conversation.MediumId" required>
       <option value="" selected>Select a method</option>
-      <option value="1" selected>Email</option>
-      <option value="1">SMS</option>
-      <option value="1">Phone</option>
+      <option ng-repeat="medium in mediums" value="{{medium.id}}">{{medium.name}}</option>
     </select>
 
     <input type="date" class="conversationDateTime" ng-model="conversation.date" required>

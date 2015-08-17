@@ -12,9 +12,8 @@ angular.module('followApp')
         url: "/users/" + $rootScope.user.id + "/contacts/" + contactId + '/conversations',
       })
       .then(function(res) {
-        console.log(res.data);
         return res.data;
-      })
+      });
     },
 
     // Add a conversation to the contact
@@ -26,8 +25,18 @@ angular.module('followApp')
       })
       .then(function(res) {
         return res.data;
-      })
+      });
     },
+
+    getMediums: function () {
+      return $http({
+        method: 'GET',
+        url: '/mediums'
+      })
+      .then(function (res) {
+        return res.data;
+      });
+    }
 
   };
 
