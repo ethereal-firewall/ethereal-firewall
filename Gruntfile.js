@@ -10,6 +10,10 @@ module.exports = function(grunt) {
       }
     },
 
+    clean: {
+      dist: ['client/dist/**/*.js', 'client/dist/**/*.css', 'client/dist/**/*.map']
+    },
+
     concat: {
       options: {
         separator: '\n'
@@ -100,6 +104,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-services');
 
@@ -132,7 +137,7 @@ module.exports = function(grunt) {
 
     grunt.task.run(['cssmin']);
 
-  })
+  });
 
   grunt.registerTask('test', [
     'jshint'
@@ -146,11 +151,12 @@ module.exports = function(grunt) {
       grunt.task.run(['build']);
       grunt.task.run(['server-dev']);
     }
-  })
+  });
 
   // Grunt Tasks ///////////////////////////////////////////////////////////////
   grunt.registerTask('deploy', [
     'test',
+    'clean',
     'upload'
   ]);
 };
