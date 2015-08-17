@@ -91,20 +91,20 @@ module.exports = function(grunt) {
     },
 
     shell: {
-      'git-add': {
-        command: 'git --no-pager add .',
-        options: {
-          stdout: true,
-          stderr: true
-        }
-      },
-      'git-commit': {
-        command: 'git --no-pager commit -m "Deployment"',
-        options: {
-          stdout: true,
-          stderr: true
-        }
-      },
+      // 'git-add': {
+      //   command: 'git --no-pager add .',
+      //   options: {
+      //     stdout: true,
+      //     stderr: true
+      //   }
+      // },
+      // 'git-commit': {
+      //   command: 'git --no-pager commit -m "Deployment"',
+      //   options: {
+      //     stdout: true,
+      //     stderr: true
+      //   }
+      // },
       'git-push': {
         command: 'git --no-pager push azure master',
         options: {
