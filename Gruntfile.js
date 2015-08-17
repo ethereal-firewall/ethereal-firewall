@@ -120,14 +120,19 @@ module.exports = function(grunt) {
   })
 
   // Helper Tasks /////////////////////////////////////////////////////////
-  //grunt.registerTask('default', ['concat', 'sass', 'watch']);
-  grunt.registerTask('build', [ 
-    'concat', 
-    'sass',
-    'uglify',
-    'cssmin'
-  ]);
-  //grunt.registerTask('start', ['nodemon']);
+
+  grunt.registerTask('build', function(n) {
+
+    grunt.task.run(['concat']);
+    grunt.task.run(['sass']);
+
+    if (grunt.option('prod')) {
+      grunt.task.run(['uglify']);
+    }
+
+    grunt.task.run(['cssmin']);
+
+  })
 
   grunt.registerTask('test', [
     'jshint'
