@@ -5,8 +5,7 @@ angular.module('followApp')
 
   $scope.data = {};
   $scope.data.conversations = [];
-  //$scope.contact = $rootScope.contact;
-  //$rootScope.user = 3;
+  $scope.conversation = {};
 
   $scope.convertDateTime = function (date, time) {
     date = new Date(date);
@@ -35,6 +34,11 @@ angular.module('followApp')
 
   $scope.toggleConversationForm = function () {
     $scope.showAddConversation = !$scope.showAddConversation;
+    var date = new Date();
+    var time = new Date(1970, 0, 1, date.getHours(), date.getMinutes());
+    date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    $scope.conversation.date = date;
+    $scope.conversation.time = time;
   };
 
   $scope.getConversations = function() {
@@ -65,8 +69,6 @@ angular.module('followApp')
       return contact;
     });
   };
-
-
 
   $scope.getContact();
   $scope.getConversations();
