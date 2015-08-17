@@ -18,15 +18,12 @@ angular.module('followApp')
     return dateTime.toISOString();
   };
 
-  $scope.initiateConversation = function (medium) {
-    var prefixes = {
-      email: 'mailto:',
-      phone: 'tel:',
-      sms: 'sms:'
-    };
-    var address = prefixes[medium];
-    if (medium === 'sms') medium = 'phone';
-    address += $scope.contact[medium];
+  // This function is called when a user clicks on one of the 
+  $scope.initiateConversation = function (mediumId) {
+    var prefixes = ['mailto:', 'tel:', 'sms:'];
+    var contactMethod = ['email', 'phone', 'phone'];
+    contactMethod = contactMethod[mediumId];
+    var address = prefixes[mediumId] + $scope.contact[contactMethod];
     $window.open(address);
     $scope.toggleConversationForm();
   };
