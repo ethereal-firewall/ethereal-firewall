@@ -92,7 +92,7 @@ module.exports = function(grunt) {
 
     exec: {
       azure: {
-        command 'git --no-pager push azure master',
+        command: 'git --no-pager push azure master',
         stdout: true,
         stderr: true
       }
