@@ -38,7 +38,7 @@ module.exports.updateContact = function (req, res) {
     lastName: utils.clean(req.body.lastName),
     phone: utils.clean(req.body.phone),
     email: utils.clean(req.body.email),
-    interval: utils.clean(req.body.interval),
+    interval: req.body.interval,
     nextDate: utils.clean(req.body.nextDate),
   };
 
