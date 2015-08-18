@@ -155,11 +155,7 @@ module.exports = function(grunt) {
   ]);
 
   grunt.registerTask('push', [
-<<<<<<< HEAD
     'gitpush'
-=======
-    'exec'
->>>>>>> 51d5e8cb1fa3f7c0074016f594b5c925ce3486c6
   ]);
 
   grunt.registerTask('upload', function(n) {
