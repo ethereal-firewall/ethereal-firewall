@@ -98,15 +98,6 @@ module.exports = function(grunt) {
       }
     },
 
-    gitpush: {
-      azure: {
-        options: {
-          remote: 'azure',
-          branch: 'master'
-        }
-      }
-    },
-
     nodemon: {
       dev: {
         script: 'server/server.js'
@@ -117,7 +108,6 @@ module.exports = function(grunt) {
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-git');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
