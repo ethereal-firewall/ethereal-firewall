@@ -19,7 +19,7 @@
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-uglify": "^0.9.1",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-exec": "^0.4.6",
+    "grunt-git": "^0.3.5",
     "grunt-nodemon": "^0.4.0",
     "grunt-sass": "^1.0.0",
     "grunt-services": "^0.1.0",
