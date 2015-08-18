@@ -115,6 +115,15 @@ module.exports = function(grunt) {
       }
     },
 
+    push: {
+      azure: {
+        options: {
+          remote: 'azure',
+          branch: 'master'
+        }
+      }
+    }
+
     nodemon: {
       dev: {
         script: 'server/server.js'
@@ -126,6 +135,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-git');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -172,7 +182,7 @@ module.exports = function(grunt) {
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
       // Do production server upload/deployment tasks
-      grunt.task.run(['shell']);
+      grunt.task.run(['push']);
     }
     else {
       grunt.task.run(['build']);
