@@ -2,14 +2,15 @@ angular.module('followApp')
 
 .controller('ContactsCtrl', ['$scope', '$rootScope', '$location', 'ContactsFactory', function($scope, $rootScope, $location, ContactsFactory) {
 
-  $rootScope.contact = {};
-
   $scope.data = {};
   $scope.data.contacts = [];
   $rootScope.order = 'due'; // Todo: Does this need to be on rootscope? - Darryl
   $scope.showAddForm = false;
   //$rootScope.user = 3;
 
+  // retrieve contacts from database
+  // add all contacts to $scope.data.contacts
+  // called on creation of this controller
   $scope.getContacts = function() {
     ContactsFactory.getContacts()
     .then(function(contacts) {
@@ -27,24 +28,6 @@ angular.module('followApp')
     });
   };
 
-  $scope.addContact = function() {
-    $scope.contact.UserId = $rootScope.user.id;
-    ContactsFactory.addContact($scope.contact)
-    .then(function(contact) {
-      console.log("created new contact ", contact);
-      $rootScope.contact = contact;
-      $location.path('/contact/' + contact.id);
-    });
-  }
-
-  $scope.navigateTo = function(contact) {
-    console.log(contact);
-    $rootScope.contact = contact;
-    $location.path('/contact/' + contact.id);
-  }
-
-  $scope.getContacts();
-
   $scope.timeToContact = function(nextDate, currentDate, currentMSDate) {
     // calculate current time in UTC
     var now = currentMSDate - currentDate.getTimezoneOffset() * 60000;
@@ -54,12 +37,20 @@ angular.module('followApp')
     return dueDate;
   };
 
-  $scope.searchfocus = function() {
-    console.log('search has focus...');
+  // adds new contact to database
+  // called on submit from addContact.html
+  $scope.addContact = function() {
+    $scope.contact.UserId = $rootScope.user.id;
+    ContactsFactory.addContact($scope.contact)
+    .then(function(contact) {
+      $location.path('/contact/' + contact.id);
+    });
   };
 
-  $scope.searchblur = function() {
-    console.log('search lost focus...');
+  // Takes user to contact view when contact is clicked on in main contact list
+  // Called from contactsList.html in .contacts ul
+  $scope.navigateTo = function(contact) {
+    $location.path('/contact/' + contact.id);
   };
 
   $scope.setOrder = function(order) {
@@ -74,7 +65,7 @@ angular.module('followApp')
     }
   };
 
-  console.log("User is ", $rootScope.user);
+  $scope.getContacts();
 
 }]);
 
