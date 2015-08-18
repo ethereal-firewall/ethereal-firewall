@@ -115,7 +115,7 @@ module.exports = function(grunt) {
       }
     },
 
-    push: {
+    gitPush: {
       azure: {
         options: {
           remote: 'azure',
@@ -177,6 +177,10 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', [
     'jshint'
+  ]);
+
+  grunt.registerTask('push', [
+    'gitPush'
   ]);
 
   grunt.registerTask('upload', function(n) {
