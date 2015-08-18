@@ -125,6 +125,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-services');
+  grunt.loadNpmTasks('grunt-exec');
 
   // Dev Env //////////////////////////////////////////////////////////////
   grunt.registerTask('server-dev', function(target) {
