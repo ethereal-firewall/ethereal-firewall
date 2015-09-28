@@ -1,8 +1,7 @@
+var config = require('./config');
+
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('_followapp', 'followapp', 'awesomeapp', {
-  host: '',
-  dialect: 'mysql'
-});
+var sequelize = new Sequelize(config.databaseUrl);
 
 var User = sequelize.import('../users/usersModel');
 var Contact = sequelize.import('../contacts/contactsModel');

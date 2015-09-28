@@ -1,7 +1,6 @@
 // utils.js
 
 var bcrypt = require('bcrypt-nodejs');
-var sanitizeHtml = require('sanitize-html');
 
 exports.sendResponse = function (res, statusCode, data) {
   res.status(statusCode);
@@ -53,9 +52,10 @@ exports.attachParams = function (req, res, next) {
   next();
 };
 
-exports.clean = function(dirty) {
-  return sanitizeHtml(dirty, {
-    allowedTags: [],
-    allowedAttributes: {}
-  });
-}
+exports.clean = function (dirty) {
+  if (!dirty) return dirty;
+  return dirty.replace(/&/g, '&amp;')
+  .replace(/</g, '&lt;')
+  .replace(/"/g, '&quot;')
+  .replace(/'/g, '&#039;');
+};
